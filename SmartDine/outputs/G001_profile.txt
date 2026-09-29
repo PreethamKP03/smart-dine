@@ -1,0 +1,10 @@
+SmartDine Group Profile: G001
+==================================================
+
+Group size: 5
+Preferred cuisines: healthy food, sandwich, burger, seafood, fast food
+Weighted budget: ₹735
+Dietary preferences: non-vegetarian, vegan, vegetarian
+Restaurant types: food court, bar, cafe, dessert parlor
+Preferred locations: electronic city, malleshwaram, rajajinagar, bannerghatta road
+Group agreement: 0.360

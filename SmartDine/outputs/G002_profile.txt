@@ -1,0 +1,10 @@
+SmartDine Group Profile: G002
+==================================================
+
+Group size: 4
+Preferred cuisines: momos, american, seafood, ice cream, asian
+Weighted budget: ₹931
+Dietary preferences: non-vegetarian, vegetarian
+Restaurant types: bakery, takeaway, delivery, sweet shop, mess
+Preferred locations: whitefield, btm, frazer town, malleshwaram
+Group agreement: 0.300

@@ -1,0 +1,10 @@
+SmartDine Group Profile: G004
+==================================================
+
+Group size: 4
+Preferred cuisines: kerala, burger, street food, healthy food, rolls
+Weighted budget: ₹1243
+Dietary preferences: vegetarian, vegan
+Restaurant types: mess, delivery, bakery, casual dining, bar
+Preferred locations: marathahalli, jp nagar, whitefield
+Group agreement: 0.400

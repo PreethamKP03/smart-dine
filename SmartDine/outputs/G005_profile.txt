@@ -1,0 +1,10 @@
+SmartDine Group Profile: G005
+==================================================
+
+Group size: 3
+Preferred cuisines: american, salad, fast food
+Weighted budget: ₹357
+Dietary preferences: vegetarian
+Restaurant types: beverage shop, fine dining, bakery
+Preferred locations: whitefield, kalyan nagar
+Group agreement: 0.467

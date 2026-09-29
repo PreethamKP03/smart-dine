@@ -1,0 +1,15 @@
+group_size
+cuisine_match
+budget_match
+dietary_compatibility
+restaurant_type_match
+location_match
+booking_match
+online_order_match
+group_agreement
+rating_score
+popularity_score
+cost_for_two
+votes
+online_order
+book_table

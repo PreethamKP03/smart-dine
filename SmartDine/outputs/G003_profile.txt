@@ -1,0 +1,10 @@
+SmartDine Group Profile: G003
+==================================================
+
+Group size: 3
+Preferred cuisines: asian, seafood, burger
+Weighted budget: ₹962
+Dietary preferences: vegetarian, non-vegetarian
+Restaurant types: bar, mess, fine dining
+Preferred locations: marathahalli, btm
+Group agreement: 0.400

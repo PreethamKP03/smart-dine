@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartDine — Real-Time ML Group Dining Recommendation Engine</title>
+  <meta name="description" content="AI and Machine Learning powered group restaurant recommendation system aggregating member preferences, budgets, diets, and consensus.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <!-- Ambient background glow layers -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="navbar" id="mainHeader">
+    <div class="brand">
+      <div class="brand-logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">Smart<span>Dine</span></div>
+        <div class="brand-subtitle">Real-Time Group Dining AI</div>
+      </div>
+    </div>
+
+    <!-- Status Badges -->
+    <div class="nav-metrics">
+      <div class="status-pill active-pill" id="serverStatusBadge">
+        <span class="pulsing-dot"></span>
+        <span id="statusText">Model: Linear Regression (R² 0.764)</span>
+      </div>
+      <div class="status-pill">
+        <span class="pill-icon">📍</span>
+        <span id="restaurantCountBadge">12,499 Bangalore Venues</span>
+      </div>
+      <div class="status-pill latency-pill" id="latencyBadge">
+        <span class="pill-icon">⚡</span>
+        <span id="latencyText">Latency: ~15ms</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="app-container">
+    
+    <!-- Hero & Preset Switcher Bar -->
+    <section class="preset-banner" id="presetSection">
+      <div class="preset-info">
+        <h1 class="hero-title">Group Restaurant Recommendation Engine</h1>
+        <p class="hero-desc">Aggregate diverse friend preferences, reconcile dietary restrictions & budgets, and predict optimal dining venues with instant explainability.</p>
+      </div>
+      <div class="preset-controls">
+        <span class="preset-label">Quick Presets:</span>
+        <div class="preset-buttons" id="presetButtonsContainer">
+          <!-- Loaded dynamically via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- App Grid -->
+    <div class="main-grid">
+      
+      <!-- LEFT COLUMN: Group Builder & Constraints -->
+      <aside class="panel group-panel" id="groupBuilderPanel">
+        <div class="panel-header">
+          <div>
+            <h2 class="panel-title">Dining Group Configuration</h2>
+            <p class="panel-subtitle">Customize each member's taste, budget & diet</p>
+          </div>
+          <button class="btn-sm btn-outline" id="addMemberBtn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            Add Member
+          </button>
+        </div>
+
+        <!-- Group Consensus Meter -->
+        <div class="consensus-card" id="consensusBox">
+          <div class="consensus-top">
+            <div class="consensus-title">
+              <span class="consensus-icon">🤝</span>
+              <span>Group Agreement & Harmony</span>
+            </div>
+            <div class="consensus-value" id="consensusScoreText">65%</div>
+          </div>
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="consensusBar" style="width: 65%;"></div>
+          </div>
+          <div class="consensus-details" id="consensusDescription">
+            Moderate alignment across members. Compromise balance applied.
+          </div>
+        </div>
+
+        <!-- Members Scrollable List -->
+        <div class="members-list" id="membersContainer">
+          <!-- Dynamically populated member cards -->
+        </div>
+
+        <!-- Group Constraints & Filters -->
+        <div class="filter-card">
+          <div class="filter-card-header">
+            <h3 class="filter-card-title">Recommendation Filters</h3>
+          </div>
+          <div class="filter-grid">
+            <div class="form-group">
+              <label for="locationFilter" class="form-label">Neighborhood / Area</label>
+              <select id="locationFilter" class="form-select">
+                <option value="">All Bangalore (12,499 Venues)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="cuisineFilter" class="form-label">Must-Have Cuisine</label>
+              <select id="cuisineFilter" class="form-select">
+                <option value="">Any Cuisine Match</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="minRatingFilter" class="form-label">Minimum Rating</label>
+              <select id="minRatingFilter" class="form-select">
+                <option value="">Any Rating</option>
+                <option value="3.5">★ 3.5 & above</option>
+                <option value="4.0">★ 4.0 & above (Top Rated)</option>
+                <option value="4.5">★ 4.5 & above (Exceptional)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="maxBudgetFilter" class="form-label">Budget Ceiling (for two)</label>
+              <select id="maxBudgetFilter" class="form-select">
+                <option value="">No Strict Cap</option>
+                <option value="500">Max ₹500 (Budget)</option>
+                <option value="1000">Max ₹1,000 (Casual)</option>
+                <option value="1800">Max ₹1,800 (Premium)</option>
+                <option value="3000">Max ₹3,000 (Fine Dining)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Feature Toggles -->
+          <div class="filter-toggles">
+            <label class="toggle-item">
+              <input type="checkbox" id="bookingToggle">
+              <span class="toggle-custom"></span>
+              <span class="toggle-text">Table Booking Required</span>
+            </label>
+            <label class="toggle-item">
+              <input type="checkbox" id="onlineOrderToggle">
+              <span class="toggle-custom"></span>
+              <span class="toggle-text">Online Ordering Preferred</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <button class="btn-primary glow-btn" id="recommendBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          Compute Recommendations
+        </button>
+      </aside>
+
+      <!-- RIGHT COLUMN: Real-Time Results & Explainability Hub -->
+      <section class="panel results-panel" id="resultsSection">
+        <div class="panel-header">
+          <div>
+            <div class="results-badge" id="resultsCountBadge">10 Matches Found</div>
+            <h2 class="panel-title" id="resultsHeading">Top Group Dining Matches</h2>
+          </div>
+          <div class="view-tabs">
+            <button class="tab-btn active" id="tabRecommendations">Top Picks</button>
+            <button class="tab-btn" id="tabModelExplain">Model Weights & AI Insights</button>
+          </div>
+        </div>
+
+        <!-- Group Summary Summary Strip -->
+        <div class="group-stats-strip" id="groupStatsStrip">
+          <div class="stat-item">
+            <span class="stat-label">Group Size</span>
+            <span class="stat-val" id="statGroupSize">4 Members</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Weighted Budget</span>
+            <span class="stat-val highlight-amber" id="statBudget">₹850</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Dietary Accommodation</span>
+            <span class="stat-val highlight-emerald" id="statDietary">Vegan & Veg</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Top Cuisines</span>
+            <span class="stat-val" id="statCuisines">Healthy Food, Asian</span>
+          </div>
+        </div>
+
+        <!-- Container for Recommendation Cards -->
+        <div class="recommendations-container" id="recommendationsList">
+          <div class="loading-state" id="loadingState">
+            <div class="spinner"></div>
+            <p>Evaluating 12,499 restaurants using the trained ML model...</p>
+          </div>
+        </div>
+
+        <!-- Container for Model Weights & Insights (Tab 2) -->
+        <div class="model-insights-container hidden" id="modelInsightsTab">
+          <div class="insights-intro">
+            <h3>Champion Model: Linear Regression Explained</h3>
+            <p>Our empirical benchmark proved that regularized Linear Regression achieved superior generalization (MAE 0.0239, R² 0.764) while providing 100% transparent and explainable decision coefficients.</p>
+          </div>
+
+          <div class="weights-grid" id="weightsGrid">
+            <!-- Dynamic coefficient bars loaded here -->
+          </div>
+
+          <div class="benchmark-table-card">
+            <h4>Algorithm Benchmark Comparison</h4>
+            <div class="table-responsive">
+              <table class="benchmark-table" id="benchmarkTable">
+                <thead>
+                  <tr>
+                    <th>Algorithm</th>
+                    <th>MAE</th>
+                    <th>RMSE</th>
+                    <th>R² Score</th>
+                    <th>Training Latency</th>
+                  </tr>
+                </thead>
+                <tbody id="benchmarkTableBody">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Member-by-Member Deep Dive Modal -->
+  <div class="modal-backdrop hidden" id="detailModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="modal-pretitle">Member Satisfaction Deep-Dive</span>
+          <h3 class="modal-title" id="modalRestaurantName">Restaurant Details</h3>
+        </div>
+        <button class="modal-close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
