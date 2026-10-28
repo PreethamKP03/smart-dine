@@ -1,0 +1,10 @@
+{
+  "feature_version": "2.0",
+  "restaurant_sha256": "62204418b0bdbc7c8457690089ec3a6ecdb22705a1f45c3ad43963690b150b41",
+  "groups_sha256": "77796a7f2d708d8255c99ae85ca5ebeb031fb2aebd3a4c2dc83973a4eab59dd6",
+  "matrix_sha256": "8853d2deebf3c291225ac291ca79397610f081e57f9a7212fd92c29153dad2a9",
+  "rows": 1249900,
+  "groups": 100,
+  "restaurants": 12499,
+  "target": "generated once during split, not here"
+}

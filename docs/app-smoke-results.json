@@ -1,0 +1,22 @@
+{
+  "api": {
+    "health_status": 200,
+    "health_response": "{\"status\":\"healthy\",\"model\":\"LinearRegression\",\"total_restaurants\":12499,\"features\":[\"group_size\",\"cuisine_match\",\"budget_match\",\"dietary_compatibility\",\"restaurant_type_match\",\"location_match\",\"booking_match\",\"online_order_match\",\"group_agreement\",\"rating_score\",\"popularity_score\",\"cost_for_two\",\"votes\",\"online_order\",\"book_table\"],\"metadata_status\":\"available\",\"model_r2_score\":0.807314823708621}",
+    "recommend_status": 200,
+    "recommendations": 3,
+    "empty_filter_verified": true,
+    "dashboard_assets_status": 200,
+    "dashboard_status": 200
+  },
+  "streamlit": {
+    "health_status": 200,
+    "health_response": "ok"
+  },
+  "streamlit_widget_test": {
+    "initial_render": true,
+    "recommend_click": true,
+    "preset_change": true,
+    "member_count_change": true,
+    "browser_visual_review": false
+  }
+}

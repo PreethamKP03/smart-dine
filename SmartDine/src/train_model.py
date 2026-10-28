@@ -1,113 +1,99 @@
-"""
-SmartDine — Model Training & Comparison Module
-src/train_model.py
-
-Responsibilities:
-1. Load train and test splits (train_ml.csv, test_ml.csv).
-2. Compare 4 candidate supervised regression models:
-   - Linear Regression
-   - Decision Tree Regressor
-   - Random Forest Regressor
-   - Gradient Boosting Regressor
-3. Evaluate metrics: MAE, MSE, RMSE, R²
-4. Empirically select champion model and serialize to models/smartdine_best_model.joblib
-"""
-
-import os
+"""Validation-selected regression models, untouched group test holdout, honest metadata."""
+from datetime import datetime, timezone
+from pathlib import Path
+import json
 import time
 import joblib
 import numpy as np
 import pandas as pd
+import sklearn
 from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.dummy import DummyRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TRAIN_PATH = os.path.join(BASE_DIR, "data", "processed", "train_ml.csv")
-TEST_PATH = os.path.join(BASE_DIR, "data", "processed", "test_ml.csv")
-MODEL_DIR = os.path.join(BASE_DIR, "models")
-OUTPUT_DIR = os.path.join(BASE_DIR, "outputs")
-os.makedirs(MODEL_DIR, exist_ok=True)
-os.makedirs(OUTPUT_DIR, exist_ok=True)
+from sklearn.model_selection import GroupShuffleSplit
+from .paths import DATA_DIR, MODEL_DIR, OUTPUT_DIR
+from .schema import FEATURES, TARGET, VERSION, sha256, write_json
 
 
-def train_and_compare_models():
-    print("Loading datasets...")
-    train_df = pd.read_csv(TRAIN_PATH)
-    test_df = pd.read_csv(TEST_PATH)
-
-    feature_columns = [
-        "group_size", "cuisine_match", "budget_match", "dietary_compatibility",
-        "restaurant_type_match", "location_match", "booking_match", "online_order_match",
-        "group_agreement", "rating_score", "popularity_score", "cost_for_two",
-        "votes", "online_order", "book_table"
-    ]
-    target_column = "suitability_score"
-
-    X_train = train_df[feature_columns].replace([np.inf, -np.inf], np.nan).fillna(train_df[feature_columns].median())
-    y_train = train_df[target_column]
-    X_test = test_df[feature_columns].replace([np.inf, -np.inf], np.nan).fillna(train_df[feature_columns].median())
-    y_test = test_df[target_column]
-
-    models = {
-        "Linear Regression": LinearRegression(),
-        "Decision Tree": DecisionTreeRegressor(max_depth=12, min_samples_leaf=20, random_state=42),
-        "Random Forest": RandomForestRegressor(n_estimators=50, max_depth=12, min_samples_leaf=10, random_state=42, n_jobs=-1),
-        "Gradient Boosting": GradientBoostingRegressor(n_estimators=60, max_depth=5, learning_rate=0.1, random_state=42)
-    }
-
-    results = []
-    trained_models = {}
-
-    print("\nTraining and evaluating models:")
-    for name, model in models.items():
-        t0 = time.time()
-        model.fit(X_train, y_train)
-        duration = time.time() - t0
-        preds = model.predict(X_test)
-
-        mae = mean_absolute_error(y_test, preds)
-        mse = mean_squared_error(y_test, preds)
-        rmse = np.sqrt(mse)
-        r2 = r2_score(y_test, preds)
-
-        results.append({
-            "Model": name,
-            "MAE": mae,
-            "MSE": mse,
-            "RMSE": rmse,
-            "R2": r2,
-            "Training_Time_Seconds": duration
-        })
-        trained_models[name] = model
-        print(f" - {name:20s} | MAE: {mae:.4f} | RMSE: {rmse:.4f} | R²: {r2:.4f} | Time: {duration:.2f}s")
-
-    comparison_df = pd.DataFrame(results)
-    comparison_path = os.path.join(OUTPUT_DIR, "model_comparison.csv")
-    comparison_df.to_csv(comparison_path, index=False)
-
-    # Select best model based on R² and MAE
-    best_row = comparison_df.sort_values(by=["R2", "MAE"], ascending=[False, True]).iloc[0]
-    best_name = best_row["Model"]
-    best_model = trained_models[best_name]
-
-    print("\n" + "=" * 60)
-    print(f"CHAMPION MODEL SELECTED: {best_name} (R² = {best_row['R2']:.4f})")
-    print("=" * 60)
-
-    # Serialize Best Model
-    model_save_path = os.path.join(MODEL_DIR, "smartdine_best_model.joblib")
-    joblib.dump(best_model, model_save_path)
-
-    # Save feature columns
-    feat_save_path = os.path.join(MODEL_DIR, "feature_columns.txt")
-    with open(feat_save_path, "w") as f:
-        for col in feature_columns:
-            f.write(f"{col}\n")
-
-    return best_name, comparison_df
+def metrics(actual, predicted):
+    return {'MAE': float(mean_absolute_error(actual, predicted)),
+            'RMSE': float(np.sqrt(mean_squared_error(actual, predicted))),
+            'R2': float(r2_score(actual, predicted))}
 
 
-if __name__ == "__main__":
+def load_splits(data_dir=DATA_DIR):
+    root = Path(data_dir)
+    manifest = json.loads((root / 'split_manifest.json').read_text(encoding='utf-8'))
+    if manifest['feature_version'] != VERSION or manifest['target'] != TARGET:
+        raise ValueError('Stale target/feature version; regenerate matrix and split.')
+    if root.resolve() == DATA_DIR.resolve():
+        for key, filename in [('restaurant_sha256', 'restaurant_features.csv'), ('groups_sha256', 'group_members.csv')]:
+            if manifest['matrix_inputs'][key] != sha256(DATA_DIR / filename):
+                raise ValueError('Split source inputs changed; regenerate matrix and split.')
+    for name, key in [('train_ml.csv', 'train_sha256'), ('test_ml.csv', 'test_sha256')]:
+        if sha256(root / name) != manifest[key]:
+            raise ValueError('Split content changed; regenerate with pipeline.py split.')
+    train, test = pd.read_csv(root / 'train_ml.csv'), pd.read_csv(root / 'test_ml.csv')
+    if train.empty or len(test) < 2 or set(train.group_id) & set(test.group_id):
+        raise ValueError('Empty splits or train/test group leakage.')
+    for frame, label in [(train, 'train'), (test, 'test')]:
+        if frame.group_id.isna().any() or frame[['group_id', 'restaurant_id']].duplicated().any():
+            raise ValueError('Missing groups or duplicate group/restaurant pairs.')
+        if sorted(frame.group_id.unique().tolist()) != manifest[label + '_groups']:
+            raise ValueError('Split groups disagree with manifest.')
+        if not np.isfinite(frame[FEATURES + ['suitability_score']].to_numpy()).all():
+            raise ValueError('Non-finite features or labels.')
+    return train, test, manifest
+
+
+def train_and_compare_models(data_dir=DATA_DIR, model_dir=MODEL_DIR, output_dir=OUTPUT_DIR):
+    train, test, manifest = load_splits(data_dir)
+    validation_split = GroupShuffleSplit(n_splits=1, test_size=.2, random_state=42)
+    fit_idx, val_idx = next(validation_split.split(train, groups=train.group_id))
+    candidates = {
+        'Linear Regression': LinearRegression(),
+        'Decision Tree': DecisionTreeRegressor(max_depth=12, min_samples_leaf=20, random_state=42),
+        'Random Forest': RandomForestRegressor(n_estimators=50, max_depth=12, min_samples_leaf=10, random_state=42, n_jobs=2),
+        'Gradient Boosting': GradientBoostingRegressor(n_estimators=60, max_depth=5, learning_rate=.1, random_state=42)}
+    rows = []
+    for name, model in candidates.items():
+        started = time.perf_counter()
+        model.fit(train.iloc[fit_idx][FEATURES], train.iloc[fit_idx].suitability_score)
+        result = metrics(train.iloc[val_idx].suitability_score, model.predict(train.iloc[val_idx][FEATURES]))
+        rows.append({'Model': name, **result, 'Training_Time_Seconds': time.perf_counter() - started})
+        print(f'Validation {name}: {result}', flush=True)
+    comparison = pd.DataFrame(rows).sort_values(['R2', 'MAE'], ascending=[False, True])
+    champion = comparison.iloc[0].Model
+    model = candidates[champion]
+    model.fit(train[FEATURES], train.suitability_score)
+    predicted = model.predict(test[FEATURES])
+    result = metrics(test.suitability_score, predicted)
+    baseline = DummyRegressor(strategy='mean').fit(train[FEATURES], train.suitability_score)
+    baseline_result = metrics(test.suitability_score, baseline.predict(test[FEATURES]))
+    model_dir, output_dir = Path(model_dir), Path(output_dir)
+    model_dir.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    model_path = model_dir / 'smartdine_best_model.joblib'
+    joblib.dump(model, model_path)
+    (model_dir / 'feature_columns.txt').write_text('\n'.join(FEATURES) + '\n', encoding='utf-8')
+    comparison.to_csv(output_dir / 'model_comparison.csv', index=False)
+    metadata = {'status': 'available', 'model_name': champion, 'estimator': type(model).__name__,
+                'feature_columns': FEATURES, 'feature_version': VERSION, 'target_definition': TARGET,
+                'metrics': result, 'baseline': {'definition': 'constant training-target mean', 'metrics': baseline_result},
+                'selection': 'highest validation R2, then lowest MAE; test used only after selection',
+                'validation_groups': sorted(train.iloc[val_idx].group_id.unique().tolist()),
+                'fit_groups': sorted(train.iloc[fit_idx].group_id.unique().tolist()),
+                'split': manifest, 'model_sha256': sha256(model_path),
+                'python_version': __import__('platform').python_version(), 'sklearn_version': sklearn.__version__,
+                'generated_at_utc': datetime.now(timezone.utc).isoformat(),
+                'raw_pipeline_verified': False,
+                'limitations': 'Synthetic target and groups. No human evaluation. Processed source provenance not independently verified.'}
+    write_json(model_dir / 'model_metadata.json', metadata)
+    print(f'Test {champion}: {result}; training-mean baseline: {baseline_result}', flush=True)
+    return champion, comparison
+
+
+if __name__ == '__main__':
     train_and_compare_models()

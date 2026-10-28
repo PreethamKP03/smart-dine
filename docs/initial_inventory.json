@@ -1,0 +1,317 @@
+{
+  "git_status": "git status, branch, ls-files and rev-parse all failed: not a git repository; ZIP contains no .git. Existing workspace .git left untouched. No tracked/untracked classification or branch is available.",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 562,
+      "sha256": "c519584fa7fc7e77620d0152e40df0d1ae87d5af1f01cdb25fb122eb43207bec",
+      "category": "source/documentation"
+    },
+    {
+      "path": "app.py",
+      "bytes": 14697,
+      "sha256": "de9dfb3de01fd327da54cb17d2c1b2cd94b3e5d2a8620caff931a6d165af31cc",
+      "category": "source/documentation"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6422,
+      "sha256": "af68bbdc8aef0c13e16df8e85014f15ba325d1890120e45366879b842f550767",
+      "category": "source/documentation"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 177,
+      "sha256": "a28acba648d818f35fc92e63a7986dfc343122d23785418f4e685eedede71503",
+      "category": "source/documentation"
+    },
+    {
+      "path": "server.py",
+      "bytes": 854,
+      "sha256": "8cd1f2d0fc7bfe785d2b78b9e7fc12e9267cc0cc97f23147825f9206b8056909",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/.gitignore",
+      "bytes": 475,
+      "sha256": "c94c630b0185457ad6ddb00d09fc6efd1ef3351c9c47f3e33125e5e42a574726",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/app.py",
+      "bytes": 14242,
+      "sha256": "101447e31dcd2a717ad606f457a1980b5b8361c2fda068d135ead4e059c793f4",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/data/processed/group_members.csv",
+      "bytes": 39977,
+      "sha256": "77796a7f2d708d8255c99ae85ca5ebeb031fb2aebd3a4c2dc83973a4eab59dd6",
+      "category": "essential small artifact"
+    },
+    {
+      "path": "SmartDine/data/processed/restaurant_features.csv",
+      "bytes": 2731972,
+      "sha256": "1b2e51c2ce025d022845c87f1d320f57560cb4e0e93dc83ab4bf8e84bdf2adc4",
+      "category": "essential small artifact"
+    },
+    {
+      "path": "SmartDine/data/processed/restaurants_cleaned.csv",
+      "bytes": 26667211,
+      "sha256": "74eff0a5a19a9d69a7f858f55b483f09f2d77de16514d5c8f9c8283515bb776e",
+      "category": "regenerable large artifact"
+    },
+    {
+      "path": "SmartDine/frontend/app.js",
+      "bytes": 27239,
+      "sha256": "5c6080283dd84966d03822940352613d30adb8270d50315cd10e43ca4834b070",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/frontend/index.css",
+      "bytes": 24789,
+      "sha256": "289a8ba35b3b424eca3dcc5fda3fceb29dbd0ee17a784d4e341d53ad16ba306a",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/frontend/index.html",
+      "bytes": 11038,
+      "sha256": "44bd21ebb54eb52599ac549e78e3553df7fa677b19274bf764ca1cbdeb376556",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/models/feature_columns.txt",
+      "bytes": 219,
+      "sha256": "da1fb2489113d794e94a5c41dccda5cccd9108802a99970fa9ef69fbafcf140c",
+      "category": "essential small artifact"
+    },
+    {
+      "path": "SmartDine/models/smartdine_best_model.joblib",
+      "bytes": 1297,
+      "sha256": "685c0f5017978b62332bc097c5e29c61c250636fa1d8b4fce9261a9ea99e8463",
+      "category": "essential small artifact"
+    },
+    {
+      "path": "SmartDine/notebooks/01_dataset_understanding.ipynb",
+      "bytes": 118111,
+      "sha256": "f5cb714d23ade4aa78db7b94f71d2cea4af4687eeb7c499097dc81807626c454",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/notebooks/02_feature_engineering.ipynb",
+      "bytes": 68926,
+      "sha256": "4af1c63f5dedf3e0334f972d92fece92cd3bf6b24a3b9b2856d5a024f8899dba",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/notebooks/exploratory_analysis.ipynb",
+      "bytes": 118111,
+      "sha256": "f5cb714d23ade4aa78db7b94f71d2cea4af4687eeb7c499097dc81807626c454",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/outputs/actual_vs_predicted.png",
+      "bytes": 628921,
+      "sha256": "13f1ca1f436a58d85af0976767a71c01cde8d4d719ccf96421e9f7ed69b29e37",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/feature_coefficients.csv",
+      "bytes": 556,
+      "sha256": "e57fab60cba4dcbdbdd1f2d2657d55aca1e3f3ad1b2db528120c52d2f9053526",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/feature_coefficients.png",
+      "bytes": 159467,
+      "sha256": "47c3337cdaff3bbf2f7274773139d388c6e1f516b86744714bcaf732680e132e",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G001_profile.txt",
+      "bytes": 408,
+      "sha256": "c9c1e8bf5ecca8fece17a03ef216f09eb756e56d4b252aaad41aa1fc489dfbfc",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G001_recommendations.csv",
+      "bytes": 1816,
+      "sha256": "b0118f526f127aebf01708e8e5ee16dc3974ef91d4695e9ba6b68edea12fd81e",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G002_profile.txt",
+      "bytes": 381,
+      "sha256": "2e3e12c29a8602b2127ee560fe8cee5f7d087a5375b3024ac689509fc5bd098c",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G002_recommendations.csv",
+      "bytes": 3951,
+      "sha256": "20488f96668011001688c1c55f6fe84c0406f043f0b27e194986d2299b8e9e72",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G003_profile.txt",
+      "bytes": 314,
+      "sha256": "84c9fae914b7f595eb00a418eb3590020db1c3cd422c8a7622ded754cc34382e",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G003_recommendations.csv",
+      "bytes": 4263,
+      "sha256": "cd4c0c735232bd4341389e0a1e6a87a450012323412e67dfffa70cb6f9ece6be",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G004_profile.txt",
+      "bytes": 369,
+      "sha256": "1c582dc7697793b02d2de48e3c6f5b5024d3786a95ea1daefd6f8fa66304d53b",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G004_recommendations.csv",
+      "bytes": 4123,
+      "sha256": "daf8a0d2d3633446c101b1ad84946fa0ef8982ebfea8940433224e28924795d4",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G005_profile.txt",
+      "bytes": 321,
+      "sha256": "8c4daa0ea8adf086afa455356bef878bb8d27cd958d038517b4d9d97b56f28af",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/G005_recommendations.csv",
+      "bytes": 4337,
+      "sha256": "f784d79720a77c62428dd35297ee65e59f965cc456106dadd0ed1c2f75ef7b84",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/model_comparison.csv",
+      "bytes": 420,
+      "sha256": "e5a6f92fe3d4a1b2dc8345247330e7d096a925b6b27000fb5c4ea4ef11837955",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/model_evaluation_metrics.csv",
+      "bytes": 86,
+      "sha256": "f16f2917c5e0ae1a4a5e162eb52b11c03fc4e30c0e5845963605eb165c2af06b",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/outputs/residual_distribution.png",
+      "bytes": 79550,
+      "sha256": "e9a6daeb6015e80d8a3e7bb238e08b6aa82d31a9821ae06956c15ab08687f125",
+      "category": "generated output"
+    },
+    {
+      "path": "SmartDine/README.md",
+      "bytes": 6422,
+      "sha256": "af68bbdc8aef0c13e16df8e85014f15ba325d1890120e45366879b842f550767",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/requirements.txt",
+      "bytes": 177,
+      "sha256": "a28acba648d818f35fc92e63a7986dfc343122d23785418f4e685eedede71503",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/__pycache__/group_preferences.cpython-312.pyc",
+      "bytes": 9736,
+      "sha256": "56bde86d1511666d68baf24000612115ee6d90e8ecb796aa9cd922f4796ed9bc",
+      "category": "temporary cache"
+    },
+    {
+      "path": "SmartDine/src/__pycache__/recommendation.cpython-312.pyc",
+      "bytes": 19175,
+      "sha256": "e053904621212707f85d87d30b5a75e44a56d44a3f68569c8377cfa9f9bcb8e6",
+      "category": "temporary cache"
+    },
+    {
+      "path": "SmartDine/src/build_group_restaurant_features.py",
+      "bytes": 13659,
+      "sha256": "1495538abeae9eca24b4f0f6dce88aac419f99d6ca87c53a82907c32feae1fa8",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/clean_restaurants.py",
+      "bytes": 8863,
+      "sha256": "d4e1b4524627eaf5cd5653095c082f812a0eee3fb8f52ad9e564dc09f50360c9",
+      "category": "legacy code"
+    },
+    {
+      "path": "SmartDine/src/evaluate_model.py",
+      "bytes": 6222,
+      "sha256": "ce3c83e79ceee0c4c65c778962891de031f28c1ba5dd5cfdd1474834bf72563f",
+      "category": "legacy code"
+    },
+    {
+      "path": "SmartDine/src/evaluation.py",
+      "bytes": 3796,
+      "sha256": "efc0e976a0cb5a4600589355a1a6943bce63ef4bbbff9923f632f265775f799f",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/feature_engineering.py",
+      "bytes": 3088,
+      "sha256": "18b32dd3e38c4f1fa8d05b7bc35f7080168aeb48febc6a612d9b81f0caec1dd9",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/generate_group_data.py",
+      "bytes": 8949,
+      "sha256": "3280dd13076b86dcc0038cb05b947de583328e28411e527e32bbc89c3b645499",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/group_preferences.py",
+      "bytes": 6682,
+      "sha256": "c345e95ff35c54ffb34d5475730d77384def8c6017d79c1e0d3ac9960db87a94",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/prepare_ml_dataset.py",
+      "bytes": 6312,
+      "sha256": "c9ad9fabf21e9784efe182ca872bb4b71e1a470b5134828ab3e85dbde2022f8b",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/preprocessing.py",
+      "bytes": 4315,
+      "sha256": "ba62a2f3bade35a44a8c67ac70a1291819ae0d8d2623ac7ac62afe37bb7a264a",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/recommend.py",
+      "bytes": 33341,
+      "sha256": "578e7e3a9431f45fdaeba0d9280732a17291ce84a59f295f0eb0071801f08c49",
+      "category": "legacy code"
+    },
+    {
+      "path": "SmartDine/src/recommendation.py",
+      "bytes": 12766,
+      "sha256": "d39b60288282140e37edde5820340f7c2f78958dbdf364a26f6e461171ef1af8",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/serving.py",
+      "bytes": 26542,
+      "sha256": "c14148878e9aad3c06941455ad8c4a99930f7d7abac1c2b0494f0ff552773a67",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/train_model.py",
+      "bytes": 4145,
+      "sha256": "69fcbf287ff1cb5ff670a881b6ed4a8d549befbc5278cf303bba99b5e5e690ee",
+      "category": "source/documentation"
+    },
+    {
+      "path": "SmartDine/src/train_models.py",
+      "bytes": 6578,
+      "sha256": "e6d501c59895b6765829698b09851628d64e31aa6c40daddb22ff2ae77770efb",
+      "category": "legacy code"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ let activePresetId = "G001";
 let currentRecommendations = [];
 let currentGroupSummary = null;
 
-// Initial Default Members (Matches Benchmark G001)
+// Initial Default Members (Illustrative default members; not saved group G001)
 let groupMembers = [
   {
     name: "Ananya",
@@ -145,7 +145,7 @@ async function loadMetadata() {
 
     // Populate Location Filter Dropdown
     const locSelect = document.getElementById("locationFilter");
-    locSelect.innerHTML = '<option value="">All Bangalore (12,499 Venues)</option>';
+    locSelect.innerHTML = '<option value="">All Bangalore</option>';
     appMetadata.locations.forEach(loc => {
       const opt = document.createElement("option");
       opt.value = loc;
@@ -163,6 +163,12 @@ async function loadMetadata() {
       cuiSelect.appendChild(opt);
     });
 
+    document.getElementById("restaurantCountBadge").textContent = `${appMetadata.total_restaurants.toLocaleString()} Bangalore venues`;
+    const meta = appMetadata.model_metadata;
+    document.getElementById("statusText").textContent = meta.status === "available"
+      ? `${meta.model_name}: benchmark test R² ${meta.metrics.R2.toFixed(4)}` : "Model metrics unavailable";
+    const insightsTitle = document.getElementById("modelInsightsTitle");
+    if (insightsTitle) insightsTitle.textContent = meta.status === "available" ? `Selected model: ${meta.model_name}` : "Model metrics unavailable";
     // Populate Insights View
     renderModelInsights();
   } catch (err) {
@@ -366,37 +372,16 @@ function addNewMember() {
 function updateConsensusMeter() {
   if (groupMembers.length === 0) return;
 
-  const agreementDims = [];
-  
-  // Cuisines
-  const allCuisines = groupMembers.flatMap(m => m.preferred_cuisines || []);
-  if (allCuisines.length > 0) {
-    const cCounts = {};
-    allCuisines.forEach(c => cCounts[c] = (cCounts[c] || 0) + 1);
-    const maxC = Math.max(...Object.values(cCounts));
-    agreementDims.push(maxC / allCuisines.length);
-  }
-
-  // Diets
-  const allDiets = groupMembers.map(m => m.dietary_preference || "any");
-  const dCounts = {};
-  allDiets.forEach(d => dCounts[d] = (dCounts[d] || 0) + 1);
-  agreementDims.push(Math.max(...Object.values(dCounts)) / allDiets.length);
-
-  // Locations
-  const allLocs = groupMembers.map(m => m.preferred_location || "any");
-  const lCounts = {};
-  allLocs.forEach(l => lCounts[l] = (lCounts[l] || 0) + 1);
-  agreementDims.push(Math.max(...Object.values(lCounts)) / allLocs.length);
-
-  // Budget Variance
-  const budgets = groupMembers.map(m => m.budget);
-  const minB = Math.min(...budgets);
-  const maxB = Math.max(...budgets);
-  const bVarianceScore = maxB > 0 ? Math.max(0, 1 - ((maxB - minB) / maxB)) : 1.0;
-  agreementDims.push(bVarianceScore);
-
-  const avgAgreement = agreementDims.reduce((a, b) => a + b, 0) / agreementDims.length;
+  // Same definition as GroupPreferences: mean pairwise cuisine Jaccard.
+  const normalize = value => String(value).toLowerCase().trim().replace(/&/g, "and").replace(/\s+/g, " ");
+  const sets = groupMembers.map(m => new Set((m.preferred_cuisines || []).map(normalize).filter(Boolean)));
+  const similarities = [];
+  sets.forEach((a, i) => sets.slice(i + 1).forEach(b => {
+    const union = new Set([...a, ...b]);
+    const overlap = [...a].filter(c => b.has(c)).length;
+    similarities.push(union.size ? overlap / union.size : 0);
+  }));
+  const avgAgreement = similarities.length ? similarities.reduce((a, b) => a + b, 0) / similarities.length : 0;
   const pct = Math.round(avgAgreement * 100);
 
   const textEl = document.getElementById("consensusScoreText");
@@ -408,13 +393,13 @@ function updateConsensusMeter() {
     barEl.style.width = `${pct}%`;
 
     if (pct >= 75) {
-      descEl.textContent = "High Group Consensus: Members share very similar cuisines, diets, and budget targets.";
+      descEl.textContent = "High cuisine agreement: members list similar preferred cuisines.";
       barEl.style.background = "linear-gradient(90deg, #10b981, #059669)";
     } else if (pct >= 50) {
-      descEl.textContent = "Moderate Harmony: Balanced preferences; ML algorithm will compromise fairly across tastes.";
+      descEl.textContent = "Moderate cuisine agreement: some preferred cuisines overlap.";
       barEl.style.background = "linear-gradient(90deg, #10b981, #f59e0b)";
     } else {
-      descEl.textContent = "Divergent Preferences: High conflict in dietary or budget constraints; fair multi-criteria scoring active.";
+      descEl.textContent = "Low cuisine agreement: preferred cuisine sets have little overlap.";
       barEl.style.background = "linear-gradient(90deg, #f59e0b, #ef4444)";
     }
   }
@@ -428,7 +413,7 @@ async function triggerRecommendation() {
   container.innerHTML = `
     <div class="loading-state">
       <div class="spinner"></div>
-      <p>Scoring 12,499 restaurants with trained Linear Regression model...</p>
+      <p>Scoring eligible restaurants with the saved regression model...</p>
     </div>
   `;
 
@@ -452,6 +437,7 @@ async function triggerRecommendation() {
       body: JSON.stringify(payload)
     });
 
+    if (!res.ok) throw new Error("Check that member budgets are positive and filters are valid.");
     const data = await res.json();
     const duration = Math.round(performance.now() - startTime);
 
@@ -514,28 +500,28 @@ function renderRecommendations(data) {
             <span>${escapeHtml(item.rest_type)}</span>
           </div>
           <div class="rec-cuisines">
-            ${cuisinesList.map(c => `<span class="c-pill">${capitalize(c.trim())}</span>`).join('')}
+            ${cuisinesList.map(c => `<span class="c-pill">${escapeHtml(capitalize(c.trim()))}</span>`).join('')}
           </div>
         </div>
 
         <div class="rec-score-box">
-          <div class="score-circle-val">${item.match_percentage}%</div>
-          <div class="score-label">Suitability Match</div>
+          <div class="score-circle-val">${item.match_percentage}/100</div>
+          <div class="score-label">Compatibility Index</div>
         </div>
       </div>
 
       <div class="rec-specs-row">
         <div class="spec-chip">
           <span>Cost:</span>
-          <span class="spec-val">₹${item.cost_for_two} for two</span>
+          <span class="spec-val">${item.cost_for_two === null ? "Unknown" : `₹${item.cost_for_two} for two`}</span>
         </div>
         <div class="spec-chip">
           <span class="star-gold">★</span>
           <span class="spec-val">${ratingDisplay}</span>
-          <span>(${item.votes} votes)</span>
+          <span>(${item.votes === null ? "Unknown" : item.votes} votes)</span>
         </div>
-        ${item.book_table ? `<div class="spec-chip"><span style="color: #34d399">✓</span> Table Booking</div>` : ''}
-        ${item.online_order ? `<div class="spec-chip"><span style="color: #38bdf8">✓</span> Online Ordering</div>` : ''}
+        ${item.book_table === null ? "Booking unknown" : item.book_table ? `<div class="spec-chip"><span style="color: #34d399">✓</span> Table Booking</div>` : ''}
+        ${item.online_order === null ? "Ordering unknown" : item.online_order ? `<div class="spec-chip"><span style="color: #38bdf8">✓</span> Online Ordering</div>` : ''}
       </div>
 
       <div class="rec-explanation-box">
@@ -566,7 +552,7 @@ function renderRecommendations(data) {
 
         <div class="fit-bar-item">
           <div class="fit-bar-header">
-            <span class="fit-bar-name">Dietary Safety</span>
+            <span class="fit-bar-name">Dietary heuristic (unverified)</span>
             <span class="fit-bar-pct">${item.breakdown.dietary_compatibility}%</span>
           </div>
           <div class="mini-progress-bg">
@@ -587,7 +573,7 @@ function renderRecommendations(data) {
 
       <div class="rec-actions">
         <button class="btn-outline inspect-member-btn" data-index="${idx}">
-          Inspect Member Satisfaction
+          Inspect Member Preferences
         </button>
       </div>
     `;
@@ -614,7 +600,7 @@ function openMemberDeepDive(restaurant) {
   let html = `
     <div style="margin-bottom: 1.5rem;">
       <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
-        Here is how this venue accommodates each specific group member's constraints:
+        Compare each member's listed budget and neighborhood preference. Dietary compatibility is unverified; confirm menu and preparation directly.
       </p>
     </div>
     <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -623,9 +609,9 @@ function openMemberDeepDive(restaurant) {
   groupMembers.forEach((member, i) => {
     const isVegReq = member.dietary_preference === "vegetarian" || member.dietary_preference === "vegan";
     const budgetRatio = restaurant.cost_for_two / Math.max(1, member.budget);
-    let budgetStatus = "Within budget";
+    let budgetStatus = restaurant.cost_for_two === null ? "Cost unknown" : "Within budget";
     let budgetColor = "var(--accent-emerald)";
-    if (budgetRatio > 1.25) {
+    if (budgetRatio > 1) {
       budgetStatus = `+${Math.round((budgetRatio - 1) * 100)}% over budget`;
       budgetColor = "var(--accent-rose)";
     }
@@ -638,7 +624,7 @@ function openMemberDeepDive(restaurant) {
         </div>
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
           <div>Target Budget: <span style="color: #fff">₹${member.budget}</span> (<span style="color: ${budgetColor}">${budgetStatus}</span>)</div>
-          <div>Location Preference: <span style="color: #fff">${capitalize(member.preferred_location || "Flexible")}</span></div>
+          <div>Location Preference: <span style="color: #fff">${escapeHtml(capitalize(member.preferred_location || "Flexible"))}</span></div>
         </div>
       </div>
     `;
@@ -685,7 +671,7 @@ function renderModelInsights() {
   if (tbody && appMetadata.model_comparison) {
     tbody.innerHTML = "";
     appMetadata.model_comparison.forEach(m => {
-      const isChamp = m.Model === "Linear Regression";
+      const isChamp = m.Model === appMetadata.model_metadata?.model_name;
       const tr = document.createElement("tr");
       if (isChamp) tr.className = "champion-row";
       tr.innerHTML = `

@@ -1,0 +1,1334 @@
+{
+  "G001": {
+    "status": "success",
+    "group_profile": {
+      "group_size": 5,
+      "weighted_budget": 734.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "healthy food",
+        "sandwich",
+        "burger",
+        "fast food",
+        "seafood",
+        "desserts"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegan",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": true,
+      "preferred_locations": [
+        "bannerghatta road",
+        "electronic city",
+        "malleshwaram",
+        "rajajinagar"
+      ],
+      "preferred_types": [
+        "bar",
+        "cafe",
+        "dessert parlor",
+        "food court"
+      ],
+      "group_agreement": 0.05,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true
+    },
+    "group_summary": {
+      "group_size": 5,
+      "weighted_budget": 734.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "healthy food",
+        "sandwich",
+        "burger",
+        "fast food",
+        "seafood",
+        "desserts"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegan",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": true,
+      "preferred_locations": [
+        "bannerghatta road",
+        "electronic city",
+        "malleshwaram",
+        "rajajinagar"
+      ],
+      "preferred_types": [
+        "bar",
+        "cafe",
+        "dessert parlor",
+        "food court"
+      ],
+      "group_agreement": 0.05,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true,
+      "locations": [
+        "bannerghatta road",
+        "electronic city",
+        "malleshwaram",
+        "rajajinagar"
+      ],
+      "restaurant_types": [
+        "bar",
+        "cafe",
+        "dessert parlor",
+        "food court"
+      ],
+      "total_candidates_scored": 925
+    },
+    "total_candidates_evaluated": 925,
+    "recommendations": [
+      {
+        "rank": 1,
+        "restaurant_id": "eat.fit | 24, Church Street, Bangalore",
+        "name": "eat.fit",
+        "location": "Church Street",
+        "cuisines": "Healthy Food, North Indian, Biryani, North Indian, Cafe, Healthy Food, North Indian, Biryani, Continental, Desserts, Healthy Food, North Indian, Biryani, Continental, Desserts",
+        "rest_type": "Quick Bites",
+        "cost_for_two": 300.0,
+        "rating": 4.1,
+        "votes": 121,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5756,
+        "suitability_score": 0.5756,
+        "match_percentage": 57.6,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 66.3,
+          "budget_match": 100.0,
+          "dietary_compatibility": 78.2,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 5.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 66%",
+          "Listed cost for two is within every member budget",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 66%; Listed cost for two is within every member budget; Listed rating 4.1/5; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 2,
+        "restaurant_id": "eat.fit | 2981, 12th Main Road, HAL 2nd Stage, Indiranagar, Bangalore",
+        "name": "eat.fit",
+        "location": "Indiranagar",
+        "cuisines": "Healthy Food, North Indian, Biryani, Healthy Food, North Indian, Biryani, Continental, Desserts",
+        "rest_type": "Quick Bites",
+        "cost_for_two": 300.0,
+        "rating": 3.9,
+        "votes": 44,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5695,
+        "suitability_score": 0.5695,
+        "match_percentage": 57.0,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 66.3,
+          "budget_match": 100.0,
+          "dietary_compatibility": 78.2,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 5.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 66%",
+          "Listed cost for two is within every member budget"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 66%; Listed cost for two is within every member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 3,
+        "restaurant_id": "Enerjuvate Studio & Cafe | 82, 7th Main, 4th B Block, Near BDA Complex, Koramangala 4th Block, Bangalore",
+        "name": "Enerjuvate Studio & Cafe",
+        "location": "Koramangala 4th Block",
+        "cuisines": "Cafe, Continental, Healthy Food, Sandwich, Pizza, Desserts, Beverages",
+        "rest_type": "Cafe",
+        "cost_for_two": 800.0,
+        "rating": 4.4,
+        "votes": 470,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5334,
+        "suitability_score": 0.5334,
+        "match_percentage": 53.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 84.1,
+          "budget_match": 40.0,
+          "dietary_compatibility": 85.4,
+          "location_match": 0.0,
+          "restaurant_type_match": 22.9,
+          "group_agreement": 5.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 84%",
+          "Listed rating 4.4/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 84%; Listed rating 4.4/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 4,
+        "restaurant_id": "Enerjuvate Studio & Cafe | Shop 547, 32nd C Cross, 9th Main, 4th Block, Jayanagar, Bangalore",
+        "name": "Enerjuvate Studio & Cafe",
+        "location": "Jayanagar",
+        "cuisines": "Cafe, Continental, Beverages, Healthy Food, Desserts, Sandwich, Pizza, Salad",
+        "rest_type": "Cafe",
+        "cost_for_two": 800.0,
+        "rating": 4.2,
+        "votes": 743,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5332,
+        "suitability_score": 0.5332,
+        "match_percentage": 53.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 84.1,
+          "budget_match": 40.0,
+          "dietary_compatibility": 85.4,
+          "location_match": 0.0,
+          "restaurant_type_match": 22.9,
+          "group_agreement": 5.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 84%",
+          "Listed rating 4.2/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 84%; Listed rating 4.2/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 5,
+        "restaurant_id": "Vaathsalya Millet Cafe | 277, 15th Cross, 21 Main, Outer Ring Road, JP Nagar 5th Phase, JP Nagar, Bangalore",
+        "name": "Vaathsalya Millet Cafe",
+        "location": "JP Nagar",
+        "cuisines": "Healthy Food, South Indian",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 500.0,
+        "rating": 4.1,
+        "votes": 294,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5087,
+        "suitability_score": 0.5087,
+        "match_percentage": 50.9,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 63.6,
+          "budget_match": 62.1,
+          "dietary_compatibility": 85.4,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 5.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 64%",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 64%; Listed rating 4.1/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      }
+    ],
+    "filters_relaxed": false,
+    "message": "",
+    "limitations": [
+      "Dietary information is unverified.",
+      "Scores approximate a constructed target, not human satisfaction.",
+      "Time/day are collected context only; no opening hours or trained time/day effect."
+    ]
+  },
+  "G002": {
+    "status": "success",
+    "group_profile": {
+      "group_size": 4,
+      "weighted_budget": 930.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "momos",
+        "american",
+        "seafood",
+        "ice cream",
+        "asian",
+        "mughlai"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "btm",
+        "frazer town",
+        "malleshwaram",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "mess",
+        "sweet shop",
+        "takeaway, delivery"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true
+    },
+    "group_summary": {
+      "group_size": 4,
+      "weighted_budget": 930.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "momos",
+        "american",
+        "seafood",
+        "ice cream",
+        "asian",
+        "mughlai"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "btm",
+        "frazer town",
+        "malleshwaram",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "mess",
+        "sweet shop",
+        "takeaway, delivery"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true,
+      "locations": [
+        "btm",
+        "frazer town",
+        "malleshwaram",
+        "whitefield"
+      ],
+      "restaurant_types": [
+        "bakery",
+        "mess",
+        "sweet shop",
+        "takeaway, delivery"
+      ],
+      "total_candidates_scored": 925
+    },
+    "total_candidates_evaluated": 925,
+    "recommendations": [
+      {
+        "rank": 1,
+        "restaurant_id": "Wokanaka - The Casual Chinese Pitstop | 502, 4th C Cross, HRBR Layout 2nd Block Extension, Kalyan Nagar, Bangalore",
+        "name": "Wokanaka - The Casual Chinese Pitstop",
+        "location": "Kalyan Nagar",
+        "cuisines": "Asian, Chinese, Thai, Seafood, Momos",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 500.0,
+        "rating": 4.1,
+        "votes": 226,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5629,
+        "suitability_score": 0.5629,
+        "match_percentage": 56.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 72.1,
+          "budget_match": 100.0,
+          "dietary_compatibility": 63.7,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 72%",
+          "Listed cost for two is within every member budget",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 72%; Listed cost for two is within every member budget; Listed rating 4.1/5; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 2,
+        "restaurant_id": "Delicacy | 1st Floor, L.G.R. Complex, Chelekere Ring Road, Kalyan Nagar, Bangalore",
+        "name": "Delicacy",
+        "location": "Kalyan Nagar",
+        "cuisines": "Chinese, Thai, Momos",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 500.0,
+        "rating": 4.1,
+        "votes": 449,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.534,
+        "suitability_score": 0.534,
+        "match_percentage": 53.4,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 56.3,
+          "budget_match": 100.0,
+          "dietary_compatibility": 63.7,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 56%",
+          "Listed cost for two is within every member budget",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 56%; Listed cost for two is within every member budget; Listed rating 4.1/5; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 3,
+        "restaurant_id": "Glen's Bakehouse | 100, Whitefield Main Road, Whitefield, Bangalore",
+        "name": "Glen's Bakehouse",
+        "location": "Whitefield",
+        "cuisines": "Bakery, Cafe, Italian, Desserts",
+        "rest_type": "Bakery, Cafe",
+        "cost_for_two": 600.0,
+        "rating": 4.2,
+        "votes": 816,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5302,
+        "suitability_score": 0.5302,
+        "match_percentage": 53.0,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 0.0,
+          "budget_match": 84.8,
+          "dietary_compatibility": 63.7,
+          "location_match": 80.6,
+          "restaurant_type_match": 55.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Neighborhood name match 81%; no distance measurement",
+          "Listed rating 4.2/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Neighborhood name match 81%; no distance measurement; Listed rating 4.2/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 4,
+        "restaurant_id": "Nasi And Mee | 1B, 3rd Floor, VR Bangalore, Mahadevapura, Whitefield, Bangalore",
+        "name": "Nasi And Mee",
+        "location": "Whitefield",
+        "cuisines": "Malaysian, Thai, Singaporean, Asian, Chinese, Momos",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 1000.0,
+        "rating": 4.4,
+        "votes": 908,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5203,
+        "suitability_score": 0.5203,
+        "match_percentage": 52.0,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 59.6,
+          "budget_match": 46.5,
+          "dietary_compatibility": 63.7,
+          "location_match": 80.6,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 60%",
+          "Neighborhood name match 81%; no distance measurement",
+          "Listed rating 4.4/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 60%; Neighborhood name match 81%; no distance measurement; Listed rating 4.4/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 5,
+        "restaurant_id": "Manchow | 2nd Floor, Sai Durga Enclave, 833/1, Outer Ring Road, Bellandur, Bangalore",
+        "name": "Manchow",
+        "location": "Bellandur",
+        "cuisines": "Chinese, Asian, Momos",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 600.0,
+        "rating": 3.8,
+        "votes": 165,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5031,
+        "suitability_score": 0.5031,
+        "match_percentage": 50.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 59.6,
+          "budget_match": 84.8,
+          "dietary_compatibility": 63.7,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 60%"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 60%; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      }
+    ],
+    "filters_relaxed": false,
+    "message": "",
+    "limitations": [
+      "Dietary information is unverified.",
+      "Scores approximate a constructed target, not human satisfaction.",
+      "Time/day are collected context only; no opening hours or trained time/day effect."
+    ]
+  },
+  "G003": {
+    "status": "success",
+    "group_profile": {
+      "group_size": 3,
+      "weighted_budget": 961.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "asian",
+        "seafood",
+        "burger"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "btm",
+        "marathahalli"
+      ],
+      "preferred_types": [
+        "bar",
+        "fine dining",
+        "mess"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true
+    },
+    "group_summary": {
+      "group_size": 3,
+      "weighted_budget": 961.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "asian",
+        "seafood",
+        "burger"
+      ],
+      "dietary_mix": [
+        "non-vegetarian",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "btm",
+        "marathahalli"
+      ],
+      "preferred_types": [
+        "bar",
+        "fine dining",
+        "mess"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true,
+      "locations": [
+        "btm",
+        "marathahalli"
+      ],
+      "restaurant_types": [
+        "bar",
+        "fine dining",
+        "mess"
+      ],
+      "total_candidates_scored": 925
+    },
+    "total_candidates_evaluated": 925,
+    "recommendations": [
+      {
+        "rank": 1,
+        "restaurant_id": "Wokanaka - The Casual Chinese Pitstop | 502, 4th C Cross, HRBR Layout 2nd Block Extension, Kalyan Nagar, Bangalore",
+        "name": "Wokanaka - The Casual Chinese Pitstop",
+        "location": "Kalyan Nagar",
+        "cuisines": "Asian, Chinese, Thai, Seafood, Momos",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 500.0,
+        "rating": 4.1,
+        "votes": 226,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.6274,
+        "suitability_score": 0.6274,
+        "match_percentage": 62.7,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 86.1,
+          "budget_match": 100.0,
+          "dietary_compatibility": 88.2,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 86%",
+          "Listed cost for two is within every member budget",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 86%; Listed cost for two is within every member budget; Listed rating 4.1/5; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 2,
+        "restaurant_id": "TBC- Sky Lounge | 36/1, 5th Floor, Berry's Hotel Kadubeesanahalli, Opposite JP Morgan, Marathahalli Ring Road, Bangalore",
+        "name": "TBC- Sky Lounge",
+        "location": "Marathahalli",
+        "cuisines": "Continental, Asian, Italian, North Indian",
+        "rest_type": "Casual Dining, Bar",
+        "cost_for_two": 1000.0,
+        "rating": 4.4,
+        "votes": 623,
+        "online_order": false,
+        "book_table": true,
+        "compatibility_score": 0.5531,
+        "suitability_score": 0.5531,
+        "match_percentage": 55.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 43.5,
+          "budget_match": 51.6,
+          "dietary_compatibility": 88.2,
+          "location_match": 74.8,
+          "restaurant_type_match": 45.4,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 43%",
+          "Neighborhood name match 75%; no distance measurement",
+          "Listed rating 4.4/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 43%; Neighborhood name match 75%; no distance measurement; Listed rating 4.4/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 3,
+        "restaurant_id": "The Fisherman's Wharf | 26, Opposite Shubh Enclave, Ambalipura Village, Sarjapur Road, Bangalore",
+        "name": "The Fisherman's Wharf",
+        "location": "Sarjapur Road",
+        "cuisines": "Seafood, Goan, North Indian, Continental, Asian",
+        "rest_type": "Casual Dining, Bar",
+        "cost_for_two": 1400.0,
+        "rating": 4.4,
+        "votes": 4139,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5516,
+        "suitability_score": 0.5516,
+        "match_percentage": 55.2,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 86.1,
+          "budget_match": 32.0,
+          "dietary_compatibility": 88.2,
+          "location_match": 0.0,
+          "restaurant_type_match": 45.4,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 86%",
+          "Listed rating 4.4/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 86%; Listed rating 4.4/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 4,
+        "restaurant_id": "Swathi Deluxe | 84/1, Kadubeesanhalli, Panathur Main Road, Marathahalli, Bangalore",
+        "name": "Swathi Deluxe",
+        "location": "Marathahalli",
+        "cuisines": "North Indian, Seafood, Chinese, Biryani",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 750.0,
+        "rating": 3.9,
+        "votes": 228,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5491,
+        "suitability_score": 0.5491,
+        "match_percentage": 54.9,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 42.6,
+          "budget_match": 67.8,
+          "dietary_compatibility": 88.2,
+          "location_match": 74.8,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 43%",
+          "Neighborhood name match 75%; no distance measurement"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 43%; Neighborhood name match 75%; no distance measurement; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 5,
+        "restaurant_id": "Crafted Plate | 1304, 1st Floor, 9th Cross, 20th Main, 2nd Phase, JP Nagar, Bangalore",
+        "name": "Crafted Plate",
+        "location": "JP Nagar",
+        "cuisines": "Cafe, Asian, Burger, Continental, Italian, Salad",
+        "rest_type": "Casual Dining, Cafe",
+        "cost_for_two": 600.0,
+        "rating": 4.2,
+        "votes": 249,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5393,
+        "suitability_score": 0.5393,
+        "match_percentage": 53.9,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 57.4,
+          "budget_match": 83.9,
+          "dietary_compatibility": 88.2,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 57%",
+          "Listed rating 4.2/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 57%; Listed rating 4.2/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      }
+    ],
+    "filters_relaxed": false,
+    "message": "",
+    "limitations": [
+      "Dietary information is unverified.",
+      "Scores approximate a constructed target, not human satisfaction.",
+      "Time/day are collected context only; no opening hours or trained time/day effect."
+    ]
+  },
+  "G004": {
+    "status": "success",
+    "group_profile": {
+      "group_size": 4,
+      "weighted_budget": 1242.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "kerala",
+        "burger",
+        "street food",
+        "healthy food",
+        "rolls"
+      ],
+      "dietary_mix": [
+        "vegan",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": true,
+      "preferred_locations": [
+        "jp nagar",
+        "marathahalli",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "casual dining, bar",
+        "delivery",
+        "mess"
+      ],
+      "group_agreement": 0.08333333333333333,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true
+    },
+    "group_summary": {
+      "group_size": 4,
+      "weighted_budget": 1242.8,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "kerala",
+        "burger",
+        "street food",
+        "healthy food",
+        "rolls"
+      ],
+      "dietary_mix": [
+        "vegan",
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": true,
+      "preferred_locations": [
+        "jp nagar",
+        "marathahalli",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "casual dining, bar",
+        "delivery",
+        "mess"
+      ],
+      "group_agreement": 0.08333333333333333,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true,
+      "locations": [
+        "jp nagar",
+        "marathahalli",
+        "whitefield"
+      ],
+      "restaurant_types": [
+        "bakery",
+        "casual dining, bar",
+        "delivery",
+        "mess"
+      ],
+      "total_candidates_scored": 925
+    },
+    "total_candidates_evaluated": 925,
+    "recommendations": [
+      {
+        "rank": 1,
+        "restaurant_id": "Coastal Hub | 3rd Floor, Santhosh Towers, 120 P A3, KIADB Export Promotion Industrial Area, Whitefield, Bangalore",
+        "name": "Coastal Hub",
+        "location": "Whitefield",
+        "cuisines": "Kerala, Seafood, Chinese",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 700.0,
+        "rating": 4.0,
+        "votes": 364,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5292,
+        "suitability_score": 0.5292,
+        "match_percentage": 52.9,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 47.8,
+          "budget_match": 86.7,
+          "dietary_compatibility": 66.1,
+          "location_match": 28.7,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 8.3
+        },
+        "reasons": [
+          "Cuisine preference coverage 48%",
+          "Neighborhood name match 29%; no distance measurement",
+          "Listed rating 4.0/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 48%; Neighborhood name match 29%; no distance measurement; Listed rating 4.0/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 2,
+        "restaurant_id": "Kumarakom | 23, 14th Main, 4th Sector, Opposite BDA Complex, HSR, Bangalore",
+        "name": "Kumarakom",
+        "location": "HSR",
+        "cuisines": "Kerala, Seafood, South Indian, North Indian, Chinese",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 600.0,
+        "rating": 3.8,
+        "votes": 1168,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5158,
+        "suitability_score": 0.5158,
+        "match_percentage": 51.6,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 47.8,
+          "budget_match": 93.1,
+          "dietary_compatibility": 66.1,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 8.3
+        },
+        "reasons": [
+          "Cuisine preference coverage 48%"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 48%; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 3,
+        "restaurant_id": "Ziyan's Cafe 27th | 1659, 27th Main Road, Sector 2, HSR, Bangalore",
+        "name": "Ziyan's Cafe 27th",
+        "location": "HSR",
+        "cuisines": "Kerala",
+        "rest_type": "Quick Bites",
+        "cost_for_two": 300.0,
+        "rating": 4.0,
+        "votes": 61,
+        "online_order": false,
+        "book_table": true,
+        "compatibility_score": 0.5059,
+        "suitability_score": 0.5059,
+        "match_percentage": 50.6,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 47.8,
+          "budget_match": 100.0,
+          "dietary_compatibility": 71.8,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 8.3
+        },
+        "reasons": [
+          "Cuisine preference coverage 48%",
+          "Listed cost for two is within every member budget",
+          "Listed rating 4.0/5"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 48%; Listed cost for two is within every member budget; Listed rating 4.0/5; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 4,
+        "restaurant_id": "Vaathsalya Millet Cafe | 277, 15th Cross, 21 Main, Outer Ring Road, JP Nagar 5th Phase, JP Nagar, Bangalore",
+        "name": "Vaathsalya Millet Cafe",
+        "location": "JP Nagar",
+        "cuisines": "Healthy Food, South Indian",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 500.0,
+        "rating": 4.1,
+        "votes": 294,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.4971,
+        "suitability_score": 0.4971,
+        "match_percentage": 49.7,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 14.2,
+          "budget_match": 99.2,
+          "dietary_compatibility": 71.8,
+          "location_match": 30.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 8.3
+        },
+        "reasons": [
+          "Cuisine preference coverage 14%",
+          "Neighborhood name match 30%; no distance measurement",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 14%; Neighborhood name match 30%; no distance measurement; Listed rating 4.1/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 5,
+        "restaurant_id": "Salt Mango Tree | 971, 5th Cross, 12th Main, HAL II Stage, Indiranagar, Bangalore",
+        "name": "Salt Mango Tree",
+        "location": "Indiranagar",
+        "cuisines": "Kerala",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 800.0,
+        "rating": 4.15,
+        "votes": 255,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.4968,
+        "suitability_score": 0.4968,
+        "match_percentage": 49.7,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 47.8,
+          "budget_match": 80.6,
+          "dietary_compatibility": 71.8,
+          "location_match": 0.0,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 8.3
+        },
+        "reasons": [
+          "Cuisine preference coverage 48%",
+          "Listed rating 4.2/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 48%; Listed rating 4.2/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      }
+    ],
+    "filters_relaxed": false,
+    "message": "",
+    "limitations": [
+      "Dietary information is unverified.",
+      "Scores approximate a constructed target, not human satisfaction.",
+      "Time/day are collected context only; no opening hours or trained time/day effect."
+    ]
+  },
+  "G005": {
+    "status": "success",
+    "group_profile": {
+      "group_size": 3,
+      "weighted_budget": 357.2,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "american",
+        "salad",
+        "fast food"
+      ],
+      "dietary_mix": [
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "kalyan nagar",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "beverage shop",
+        "fine dining"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true
+    },
+    "group_summary": {
+      "group_size": 3,
+      "weighted_budget": 357.2,
+      "min_rating": 3.5,
+      "top_cuisines": [
+        "american",
+        "salad",
+        "fast food"
+      ],
+      "dietary_mix": [
+        "vegetarian"
+      ],
+      "has_vegetarian": true,
+      "has_vegan": false,
+      "preferred_locations": [
+        "kalyan nagar",
+        "whitefield"
+      ],
+      "preferred_types": [
+        "bakery",
+        "beverage shop",
+        "fine dining"
+      ],
+      "group_agreement": 0.0,
+      "time_of_day": "dinner",
+      "day_type": "weekend",
+      "booking_required": true,
+      "online_preferred": true,
+      "locations": [
+        "kalyan nagar",
+        "whitefield"
+      ],
+      "restaurant_types": [
+        "bakery",
+        "beverage shop",
+        "fine dining"
+      ],
+      "total_candidates_scored": 925
+    },
+    "total_candidates_evaluated": 925,
+    "recommendations": [
+      {
+        "rank": 1,
+        "restaurant_id": "Sri Sai Palace | NFF5, Apurva Sai Kuteer, Belathur Kadugodi, Whitefield, Bangalore",
+        "name": "Sri Sai Palace",
+        "location": "Whitefield",
+        "cuisines": "South Indian, North Indian, Chinese, Fast Food",
+        "rest_type": "Quick Bites",
+        "cost_for_two": 300.0,
+        "rating": 3.8,
+        "votes": 88,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5326,
+        "suitability_score": 0.5326,
+        "match_percentage": 53.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 13.3,
+          "budget_match": 100.0,
+          "dietary_compatibility": 67.6,
+          "location_match": 88.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 13%",
+          "Listed cost for two is within every member budget",
+          "Neighborhood name match 88%; no distance measurement"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 13%; Listed cost for two is within every member budget; Neighborhood name match 88%; no distance measurement; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 2,
+        "restaurant_id": "Boondock Bistro | 33, Sundari Armadale, 3rd Floor, Above Axis Bank, Next to Forum Value Mall, Whitefield Main Road, Whitefield, Bangalore",
+        "name": "Boondock Bistro",
+        "location": "Whitefield",
+        "cuisines": "Steak, Continental, American, Italian, Salad, Cafe",
+        "rest_type": "Casual Dining, Cafe",
+        "cost_for_two": 900.0,
+        "rating": 3.9,
+        "votes": 1649,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5093,
+        "suitability_score": 0.5093,
+        "match_percentage": 50.9,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 86.7,
+          "budget_match": 8.5,
+          "dietary_compatibility": 67.6,
+          "location_match": 88.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 87%",
+          "Neighborhood name match 88%; no distance measurement"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 87%; Neighborhood name match 88%; no distance measurement; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 3,
+        "restaurant_id": "Windy- Taste Of Home | 199, Kuralagam Panchayat Road, Prashanth Layout, Whitefield, Bangalore",
+        "name": "Windy- Taste Of Home",
+        "location": "Whitefield",
+        "cuisines": "North Indian",
+        "rest_type": "Quick Bites",
+        "cost_for_two": 300.0,
+        "rating": 3.6,
+        "votes": 112,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.5049,
+        "suitability_score": 0.5049,
+        "match_percentage": 50.5,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 0.0,
+          "budget_match": 100.0,
+          "dietary_compatibility": 67.6,
+          "location_match": 88.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Listed cost for two is within every member budget",
+          "Neighborhood name match 88%; no distance measurement"
+        ],
+        "cautions": [
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Listed cost for two is within every member budget; Neighborhood name match 88%; no distance measurement; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 4,
+        "restaurant_id": "Bloomsbury's Global Kitchen & Bakehouse | Ground Floor, EPIP Zone, Near BMTC Bus Depot, Whitefield, Bangalore",
+        "name": "Bloomsbury's Global Kitchen & Bakehouse",
+        "location": "Whitefield",
+        "cuisines": "American, Cafe, Continental, French, Burger, Mexican, Desserts, Pizza",
+        "rest_type": "Cafe, Dessert Parlor",
+        "cost_for_two": 900.0,
+        "rating": 4.5,
+        "votes": 756,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.4571,
+        "suitability_score": 0.4571,
+        "match_percentage": 45.7,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 59.1,
+          "budget_match": 8.5,
+          "dietary_compatibility": 67.6,
+          "location_match": 88.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 59%",
+          "Neighborhood name match 88%; no distance measurement",
+          "Listed rating 4.5/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 59%; Neighborhood name match 88%; no distance measurement; Listed rating 4.5/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      },
+      {
+        "rank": 5,
+        "restaurant_id": "The Fat Chef | 5/2A, Jagrithi, Ramagondanahalli, Whitefield, Bangalore",
+        "name": "The Fat Chef",
+        "location": "Whitefield",
+        "cuisines": "Japanese, Italian, American, Asian, North Indian, Steak",
+        "rest_type": "Casual Dining",
+        "cost_for_two": 1400.0,
+        "rating": 4.1,
+        "votes": 1755,
+        "online_order": true,
+        "book_table": true,
+        "compatibility_score": 0.4429,
+        "suitability_score": 0.4429,
+        "match_percentage": 44.3,
+        "score_interpretation": "compatibility index, not probability",
+        "dietary_status": "unverified",
+        "breakdown": {
+          "cuisine_match": 59.1,
+          "budget_match": 1.7,
+          "dietary_compatibility": 67.6,
+          "location_match": 88.1,
+          "restaurant_type_match": 0.0,
+          "group_agreement": 0.0
+        },
+        "reasons": [
+          "Cuisine preference coverage 59%",
+          "Neighborhood name match 88%; no distance measurement",
+          "Listed rating 4.1/5"
+        ],
+        "cautions": [
+          "Listed cost exceeds at least one member budget",
+          "Dietary compatibility is unverified; confirm menu and preparation directly"
+        ],
+        "explanation": "Cuisine preference coverage 59%; Neighborhood name match 88%; no distance measurement; Listed rating 4.1/5; Listed cost exceeds at least one member budget; Dietary compatibility is unverified; confirm menu and preparation directly"
+      }
+    ],
+    "filters_relaxed": false,
+    "message": "",
+    "limitations": [
+      "Dietary information is unverified.",
+      "Scores approximate a constructed target, not human satisfaction.",
+      "Time/day are collected context only; no opening hours or trained time/day effect."
+    ]
+  }
+}

@@ -1,0 +1,711 @@
+{
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 560,
+      "sha256": "c0b1b56df19f6cb3cabe1cd039b34b34c1cbb57ebef2a2f601a9427aaea19767",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "PROJECT_AUDIT.md",
+      "bytes": 15787,
+      "sha256": "36351905980f63a8167f1aad786817f1ba102df67897f32d6151367841a2b8d3",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18830,
+      "sha256": "cfd010b2a978e9433d3769d2366f0f34b497a827c8536ad9916f0e1ef614afdd",
+      "category": "verification/documentation",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/.gitignore",
+      "bytes": 47,
+      "sha256": "a755eb5b1f1e1734e92fdf2f6a5a9f17f066563f34ce9ea4aafa649e22b414fd",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/README.md",
+      "bytes": 277,
+      "sha256": "d13a89db8838e2b1b40968fc9c95fdfc847f98b4cb4b8ce0ffa533ae42d8d154",
+      "category": "verification/documentation",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/__init__.py",
+      "bytes": 71,
+      "sha256": "54d3f5846f1ea57cde589833526469fca9ce2da2f1c73448604416eadf8586de",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/app.py",
+      "bytes": 283,
+      "sha256": "81815f4b626ffa28e1daea958975e985323dd91f1bf3bc29b1e59ed6d0db8c68",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/data/processed/group_members.csv",
+      "bytes": 39977,
+      "sha256": "77796a7f2d708d8255c99ae85ca5ebeb031fb2aebd3a4c2dc83973a4eab59dd6",
+      "category": "essential small operational artifact",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/data/processed/group_restaurant_features.csv",
+      "bytes": 266061341,
+      "sha256": "8853d2deebf3c291225ac291ca79397610f081e57f9a7212fd92c29153dad2a9",
+      "category": "regenerable local large artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/data/processed/group_restaurant_features.manifest.json",
+      "bytes": 417,
+      "sha256": "e4dfd00b76a2e57c54242015701c7a7573340549da856e50e2301094e2e2319e",
+      "category": "essential small operational artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/data/processed/restaurant_features.csv",
+      "bytes": 2744445,
+      "sha256": "62204418b0bdbc7c8457690089ec3a6ecdb22705a1f45c3ad43963690b150b41",
+      "category": "essential small operational artifact",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/data/processed/restaurants_cleaned.csv",
+      "bytes": 26667211,
+      "sha256": "74eff0a5a19a9d69a7f858f55b483f09f2d77de16514d5c8f9c8283515bb776e",
+      "category": "regenerable local large artifact",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/data/processed/split_manifest.json",
+      "bytes": 2824,
+      "sha256": "8485c09b956f76badc11c0782577b209d616860669c7aadfd0fe8bb6116f1f91",
+      "category": "essential small operational artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/data/processed/test_ml.csv",
+      "bytes": 57305457,
+      "sha256": "becf42874af6da1b160c52955b6bc0b0788d3e9f56fc13946774280a8188f5e7",
+      "category": "regenerable local large artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/data/processed/train_ml.csv",
+      "bytes": 231374300,
+      "sha256": "a9696fab42f4c19c2a1597551c09cf3e2e0422281a5de7a0b9a6a308912137fd",
+      "category": "regenerable local large artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/frontend/app.js",
+      "bytes": 28366,
+      "sha256": "7f03f9d9d249edbb23a75a43406e48ea03a3a559225ac31ebefe42d01398ed11",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/frontend/index.css",
+      "bytes": 24886,
+      "sha256": "5704380f6e7cd43e090d23b0315664ff5fdbe91d4f2e318911df4c859741601c",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/frontend/index.html",
+      "bytes": 11345,
+      "sha256": "f07563994485e226da3e3935fee0eccb301af8a93adc3014d77a4e1d1f48615c",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/models/feature_columns.txt",
+      "bytes": 234,
+      "sha256": "d81a27147803c5bf7b9a30ddc606efa51e2677b7a2bcdd7b2881ebf68a93536f",
+      "category": "essential small operational artifact",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/models/model_metadata.json",
+      "bytes": 6079,
+      "sha256": "762ca57626cc4fbe8701b6a6af81685362d17cdfb14a5379130bb6b6a942ad93",
+      "category": "essential small operational artifact",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/models/smartdine_best_model.joblib",
+      "bytes": 1376,
+      "sha256": "8e705fa664060276913ee6f1678563a9e43150cbe0c462aa93e97212ef7d3f61",
+      "category": "essential small operational artifact",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/notebooks/01_dataset_understanding.ipynb",
+      "bytes": 9020,
+      "sha256": "5768a1e57e9fef7af75612cd2619f3fd746bd7aa6128e289fd2ddd04ae070597",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/notebooks/02_feature_engineering.ipynb",
+      "bytes": 5156,
+      "sha256": "ae1935ce21dbf155023dd8d07c196596b173f26cb908a6c956f2fc04e17f0d1a",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/notebooks/exploratory_analysis.ipynb",
+      "bytes": 9020,
+      "sha256": "5768a1e57e9fef7af75612cd2619f3fd746bd7aa6128e289fd2ddd04ae070597",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/outputs/G001_profile.txt",
+      "bytes": 408,
+      "sha256": "c9c1e8bf5ecca8fece17a03ef216f09eb756e56d4b252aaad41aa1fc489dfbfc",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G001_recommendations.csv",
+      "bytes": 1816,
+      "sha256": "b0118f526f127aebf01708e8e5ee16dc3974ef91d4695e9ba6b68edea12fd81e",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G002_profile.txt",
+      "bytes": 381,
+      "sha256": "2e3e12c29a8602b2127ee560fe8cee5f7d087a5375b3024ac689509fc5bd098c",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G002_recommendations.csv",
+      "bytes": 3951,
+      "sha256": "20488f96668011001688c1c55f6fe84c0406f043f0b27e194986d2299b8e9e72",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G003_profile.txt",
+      "bytes": 314,
+      "sha256": "84c9fae914b7f595eb00a418eb3590020db1c3cd422c8a7622ded754cc34382e",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G003_recommendations.csv",
+      "bytes": 4263,
+      "sha256": "cd4c0c735232bd4341389e0a1e6a87a450012323412e67dfffa70cb6f9ece6be",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G004_profile.txt",
+      "bytes": 369,
+      "sha256": "1c582dc7697793b02d2de48e3c6f5b5024d3786a95ea1daefd6f8fa66304d53b",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G004_recommendations.csv",
+      "bytes": 4123,
+      "sha256": "daf8a0d2d3633446c101b1ad84946fa0ef8982ebfea8940433224e28924795d4",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G005_profile.txt",
+      "bytes": 321,
+      "sha256": "8c4daa0ea8adf086afa455356bef878bb8d27cd958d038517b4d9d97b56f28af",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/G005_recommendations.csv",
+      "bytes": 4337,
+      "sha256": "f784d79720a77c62428dd35297ee65e59f965cc456106dadd0ed1c2f75ef7b84",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/README.md",
+      "bytes": 649,
+      "sha256": "60dc5f0098b3224c205188646e3aac2674c254fdffc18362e939f12990f1e1fc",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/actual_vs_predicted.png",
+      "bytes": 628921,
+      "sha256": "13f1ca1f436a58d85af0976767a71c01cde8d4d719ccf96421e9f7ed69b29e37",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/feature_coefficients.csv",
+      "bytes": 569,
+      "sha256": "b57df03ba4381c111c92aef0ab525c9afdfcb371b1177cf56caf5f1e134a4dba",
+      "category": "generated output",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/outputs/feature_coefficients.png",
+      "bytes": 159467,
+      "sha256": "47c3337cdaff3bbf2f7274773139d388c6e1f516b86744714bcaf732680e132e",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/figures/actual_vs_predicted.png",
+      "bytes": 86609,
+      "sha256": "89393b631b2b6f14b6570aee69b8ed6a1f3b97dfc90d4c48c8a2d53c3af9c2a9",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/correlations.png",
+      "bytes": 63116,
+      "sha256": "d5676fa5610db0bfb039d77e65a0b160705a623d1f46a3155ba7513663f004f4",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/cost_for_two_distribution.png",
+      "bytes": 40891,
+      "sha256": "dbe1d92438a3423fc610c722ff6fbec045c743ee2c3a2ae069617506e555f7ae",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/cuisines.png",
+      "bytes": 55164,
+      "sha256": "b52955503f2c3dfd9d2a9e97c816589f950193a31c346b4fa0ceaa5a1e11d218",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/eda_manifest.json",
+      "bytes": 482,
+      "sha256": "f6cd7903f16366c2eea823594b3dcc86f28838f0b26633017fe4b4552ed663c4",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/feature_coefficients.png",
+      "bytes": 71664,
+      "sha256": "9dd7dcaf72d2cf094b00009c63a56ea3b9e4a0ec6e02b5bcc5812c07e7b71b0d",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/location_counts.png",
+      "bytes": 59610,
+      "sha256": "24e57e1641338c98f55db3a0b372eb487a17431210de21e2116fb5f1adb0320f",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/missing_values.png",
+      "bytes": 71699,
+      "sha256": "62c7aa4bc1480183f8ca323409285f6131b7533895f97aac40a02cea2ef8fd6e",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/rating_distribution.png",
+      "bytes": 29794,
+      "sha256": "9b946c00398deb0a5883c5a6b8c558c4282a249912f22acfa6f411dbc3671691",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/residual_distribution.png",
+      "bytes": 35602,
+      "sha256": "978a5d211a2e9b479477c39678b9638f3e22688aa6160fd76853724a808c5b65",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/rest_type_counts.png",
+      "bytes": 65738,
+      "sha256": "dff4571faf6fe3f3691834306698b7fe1cf3cc5217a28b0ecc18727df481d0d9",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/synthetic_budgets.png",
+      "bytes": 36873,
+      "sha256": "794222ad73d2a3920601daed617131be93c973583ec2f79659923c697a6fc45c",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/figures/votes_distribution.png",
+      "bytes": 33204,
+      "sha256": "af47b68622340be4f08fc13f6b91240b5e5ac5c383a9d60745acff0a6a78a2e4",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/historical_replay.json",
+      "bytes": 1653,
+      "sha256": "6d615e8a080578e254311bfe9296f02bd9c1bd5b909b4fd6a1f2a52b46dbd739",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/outputs/model_comparison.csv",
+      "bytes": 422,
+      "sha256": "c83aeea108b778c53201b553dba1f029d537de602293691399daeafe1bb80f55",
+      "category": "generated output",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/outputs/model_evaluation_metrics.csv",
+      "bytes": 88,
+      "sha256": "eaa754639bc270b136ca5deb90ccf5b7784cf278f9bd21dd3b3483ceced64b67",
+      "category": "generated output",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/outputs/residual_distribution.png",
+      "bytes": 79550,
+      "sha256": "e9a6daeb6015e80d8a3e7bb238e08b6aa82d31a9821ae06956c15ab08687f125",
+      "category": "generated output",
+      "change": "unchanged"
+    },
+    {
+      "path": "SmartDine/outputs/scenarios.json",
+      "bytes": 48457,
+      "sha256": "8255599c9149b7a854f9810e5a4a3d081ef7dd1aa4bc47374759e7d851a95db0",
+      "category": "generated output",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/requirements.txt",
+      "bytes": 24,
+      "sha256": "21342236ba2705eba605b45801a96dd00089ee1d79a7cb7c60f02279f88f2d12",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/__init__.py",
+      "bytes": 48,
+      "sha256": "9c58ed5ea21050ae472defb92239cf1de908bd592251182819a6d97b730e62a9",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/build_group_restaurant_features.py",
+      "bytes": 1971,
+      "sha256": "913e5bde68e00a11afad41dfaed63adb5f578443f212b0656182356114c260c0",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/clean_restaurants.py",
+      "bytes": 163,
+      "sha256": "47bb56f50425688b72c656b448a47cecdc5f66e4cc84d794e2b69ed39b052026",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/eda.py",
+      "bytes": 3299,
+      "sha256": "0faf1d8276f352f971eada4d567ead6ba01b0eb65b70a67c9919293435994bfb",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/evaluate_model.py",
+      "bytes": 161,
+      "sha256": "72dd18a1c73a31c2422b6258768c2daf1ec4eb8beab322abb328a8f4deb59850",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/evaluation.py",
+      "bytes": 2911,
+      "sha256": "6d28ab5d12b5f79f5f5e8470dc343b2e1f7ff04bc2f2a8fd67e83d948877fb73",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/feature_engineering.py",
+      "bytes": 1695,
+      "sha256": "bf5c30610b6aa0977ce027a0593c5b9d106591fd1a53abb472df7a405cd9ff77",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/features.py",
+      "bytes": 5599,
+      "sha256": "dd8d0f05abbb42ac06f7526c6b9f77cb5de5a078a25868664f0494d51de09592",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/generate_group_data.py",
+      "bytes": 11123,
+      "sha256": "b3654e24f43019fc6cf580dd927f4bbb2b333f1b3d2de5f48f2328c636ee2f4f",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/group_preferences.py",
+      "bytes": 7704,
+      "sha256": "47a1980d92f632b00645761741e8356d2777b0bc3d43d50b1ddae25435b796b9",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/metadata.py",
+      "bytes": 956,
+      "sha256": "876120d77d56d535e2aabbad25025078fa0e142f1a081cc87dd67ab8143c23ae",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/paths.py",
+      "bytes": 466,
+      "sha256": "2bddf08fce960874d01b2ba2b15f10e6cd1de15642b10fadacb1842601291933",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/prepare_ml_dataset.py",
+      "bytes": 2861,
+      "sha256": "7354754550b632c258c71994752bac564f6472dcf08b7a454cca5beaa1d0144e",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/preprocessing.py",
+      "bytes": 5098,
+      "sha256": "ec1bd6a45432f8f5d30f1d999c81a17fc1dc2e1519892719f6c3b7d3f270e24f",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/recommend.py",
+      "bytes": 876,
+      "sha256": "1ff1804578d426ce42a341c6a2816d0245d946ebd954499eb89eb83f3f0a0a85",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/recommendation.py",
+      "bytes": 7980,
+      "sha256": "b405dd2e0be8c9f00001f557089aa5f2b8d90168ad0dee64378e03d5f15bd214",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/schema.py",
+      "bytes": 1710,
+      "sha256": "a457e4e4cf4941c820ffb84ceda38ca440aebfcf0da2eb35a0f4474df343da81",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "SmartDine/src/serving.py",
+      "bytes": 10128,
+      "sha256": "ba67f3f0a087409bf2cdb63ce1efdfe4b33c875dc7a69653fa2e2326070b97d4",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/train_model.py",
+      "bytes": 6149,
+      "sha256": "35753a32cbf3fba3c4faf2085ddb42e13f7206b04374ff4aefb8a43459e12948",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "SmartDine/src/train_models.py",
+      "bytes": 181,
+      "sha256": "663be5a6d4dc8782649e5022ca725f0c74fc4ed6fff361e0975ccbca548a1215",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "app.py",
+      "bytes": 14684,
+      "sha256": "a554d4c6bf22cd84c058b28790014451bc2e0040323686bea72c45d87fdc455c",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "docs/app-smoke-results.json",
+      "bytes": 956,
+      "sha256": "1b93f50b58a699a26cdffabd5c694b3354efc6a25e74ddd76b82171f84777dda",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/browser-check.json",
+      "bytes": 610,
+      "sha256": "9cd9d957957810f9ebb41d90572496d8dccba3b5e18b9f15fbc11be82b756803",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/browser-dashboard.png",
+      "bytes": 78877,
+      "sha256": "f1bed32412eb94d29f1eb328dc4121073bd2d612fe8a68330566881d375520f6",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/browser-recommendations.png",
+      "bytes": 46267,
+      "sha256": "e44292c62b85c5e97fcad9fb86860f4eba4770f3496789528255564cc2272754",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/initial_inventory.json",
+      "bytes": 11453,
+      "sha256": "ab991cf7e664ce7b4820de7b83cea5ed41767f654b5d49d4f43d2745a216b9a5",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/raw-validation.json",
+      "bytes": 288,
+      "sha256": "211ce8e2f31f3cd839c5117d012c7f032e8b0bffb1b1b770d6f6c7fe689b29e2",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/test-results.xml",
+      "bytes": 7719,
+      "sha256": "06f688a24d75337354f2aa3818c36b7c94dc53c1740fb339bac5c1590bc35603",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "docs/verification.json",
+      "bytes": 3482,
+      "sha256": "6bd371323b5eb331b0e43ba7b3134ac7c3c14cd33a21fb3ce8e31350fe08ee3e",
+      "category": "verification/documentation",
+      "change": "created"
+    },
+    {
+      "path": "pipeline.py",
+      "bytes": 1641,
+      "sha256": "dae2c854b542e2e5d91bf99742e0eeb21d20042af400ec31021ece99b05e1826",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "pytest.ini",
+      "bytes": 41,
+      "sha256": "6a96ba0e2d5a8296fb90f474da9d2f0173d3e41eba18965513f711104155f913",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 289,
+      "sha256": "9afc02ea08e007c67271f68480e34c8dfe3e805745e3c555d03f9949be590027",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "server.py",
+      "bytes": 213,
+      "sha256": "691746b78395267c216d0b9edce9d61b391b494620ad9ae7df0d41a1ddba20b4",
+      "category": "source/configuration",
+      "change": "edited/regenerated"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 1474,
+      "sha256": "0f149d4655c43f06a5aea37ba741b9d65a87dfeda453c79a86fbc0b38be03890",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tests/test_artifacts_api.py",
+      "bytes": 4955,
+      "sha256": "e40cac084337d475e224227cdbba86d96af53b781f6f9eda144cda8ff859eb90",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tests/test_data.py",
+      "bytes": 5453,
+      "sha256": "e1b0cd005420da57e63e76b62f36a611c38e1a83cbe581c8c9ce04d157874b11",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tests/test_frontend.cjs",
+      "bytes": 1474,
+      "sha256": "4894ccdacd71f382477d3b964b4a0af13323819a9d784819e464a64d6bd7b011",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "bytes": 2840,
+      "sha256": "dc37b4835e0f4c2b36e138bfbce8d7774f4914593089847164d466280d97e9dd",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tests/test_recommendation.py",
+      "bytes": 4553,
+      "sha256": "5836957d38df677f85463d3b2cdb3d3d69aeb830c861e8a147bbcbe9b14560c9",
+      "category": "tests",
+      "change": "created"
+    },
+    {
+      "path": "tools/package_submission.py",
+      "bytes": 3193,
+      "sha256": "108e7087c1b5f95aa59c617ff4baed121bd90a80fe2d0048862a8bd3d547f8f0",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "tools/replay_historical.py",
+      "bytes": 5633,
+      "sha256": "ba6882d640fe08d957a3cd8d42f3a6c53a6d6e78ce9431d7464a8d5af50defbb",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "tools/smoke_apps.py",
+      "bytes": 4458,
+      "sha256": "76b6aca12a34b3dfd7e591c64daa28d03d0eb6a5934a5729d7ba056153112d37",
+      "category": "source/configuration",
+      "change": "created"
+    },
+    {
+      "path": "tools/verify_repository.py",
+      "bytes": 3096,
+      "sha256": "2266fcb5974c06fac3a9c49c2a564ef52fce9d85c22a9a08fce9998cdfd4d423",
+      "category": "source/configuration",
+      "change": "created"
+    }
+  ],
+  "git_status": "not available; no .git in supplied snapshot",
+  "removed_files": [],
+  "self_referential_reports_excluded": [
+    "docs/final_inventory.json",
+    "docs/FILE_CHANGES.md",
+    "docs/submission_manifest.json"
+  ]
+}

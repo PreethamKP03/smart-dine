@@ -1,0 +1,132 @@
+{
+  "commands": [
+    {
+      "command": "python -m compileall -q app.py server.py pipeline.py SmartDine/src tests tools",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "node --check SmartDine/frontend/app.js",
+      "exit_code": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": "python -m pip check",
+      "exit_code": 0,
+      "stdout": "No broken requirements found.\n",
+      "stderr": ""
+    },
+    {
+      "command": "python pipeline.py evaluate",
+      "exit_code": 0,
+      "stdout": "STAGE evaluate\nRecomputed test metrics: {'MAE': 0.023990342322099064, 'RMSE': 0.03006781890867749, 'R2': 0.807314823708621}\n",
+      "stderr": ""
+    }
+  ],
+  "all_source_modules_imported": true,
+  "absolute_path_violations": [],
+  "valid_figure_count": 12,
+  "figures": [
+    {
+      "file": "actual_vs_predicted.png",
+      "pixels": [
+        1050,
+        750
+      ],
+      "sha256": "89393b631b2b6f14b6570aee69b8ed6a1f3b97dfc90d4c48c8a2d53c3af9c2a9"
+    },
+    {
+      "file": "correlations.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "d5676fa5610db0bfb039d77e65a0b160705a623d1f46a3155ba7513663f004f4"
+    },
+    {
+      "file": "cost_for_two_distribution.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "dbe1d92438a3423fc610c722ff6fbec045c743ee2c3a2ae069617506e555f7ae"
+    },
+    {
+      "file": "cuisines.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "b52955503f2c3dfd9d2a9e97c816589f950193a31c346b4fa0ceaa5a1e11d218"
+    },
+    {
+      "file": "feature_coefficients.png",
+      "pixels": [
+        1200,
+        900
+      ],
+      "sha256": "9dd7dcaf72d2cf094b00009c63a56ea3b9e4a0ec6e02b5bcc5812c07e7b71b0d"
+    },
+    {
+      "file": "location_counts.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "24e57e1641338c98f55db3a0b372eb487a17431210de21e2116fb5f1adb0320f"
+    },
+    {
+      "file": "missing_values.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "62c7aa4bc1480183f8ca323409285f6131b7533895f97aac40a02cea2ef8fd6e"
+    },
+    {
+      "file": "rating_distribution.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "9b946c00398deb0a5883c5a6b8c558c4282a249912f22acfa6f411dbc3671691"
+    },
+    {
+      "file": "residual_distribution.png",
+      "pixels": [
+        1050,
+        750
+      ],
+      "sha256": "978a5d211a2e9b479477c39678b9638f3e22688aa6160fd76853724a808c5b65"
+    },
+    {
+      "file": "rest_type_counts.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "dff4571faf6fe3f3691834306698b7fe1cf3cc5217a28b0ecc18727df481d0d9"
+    },
+    {
+      "file": "synthetic_budgets.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "794222ad73d2a3920601daed617131be93c973583ec2f79659923c697a6fc45c"
+    },
+    {
+      "file": "votes_distribution.png",
+      "pixels": [
+        1350,
+        900
+      ],
+      "sha256": "af47b68622340be4f08fc13f6b91240b5e5ac5c383a9d60745acff0a6a78a2e4"
+    }
+  ],
+  "git": "Unavailable in supplied ZIP; original workspace .git left untouched.",
+  "browser_check": "Recommend button clicked in IAB; cards, rationale and uncertainty labels visibly rendered.",
+  "browser_screenshot": "docs/browser-recommendations.png"
+}

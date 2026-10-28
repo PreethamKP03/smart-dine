@@ -1,0 +1,20 @@
+{
+  "streamlit": {
+    "page_rendered": true,
+    "recommend_button_clicked": true,
+    "cards_and_dietary_cautions_visible": true
+  },
+  "dashboard": {
+    "initial_asset_failure_found": true,
+    "asset_urls_repaired": true,
+    "model_r2_display": 0.8073,
+    "catalogue_count_display": 12499,
+    "compute_button_clicked": true,
+    "recommendation_cards_rendered": true
+  },
+  "screenshots": [
+    "browser-recommendations.png",
+    "browser-dashboard.png"
+  ],
+  "scope": "Limited real browser smoke review, not exhaustive accessibility/usability or human recommendation evaluation."
+}

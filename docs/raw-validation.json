@@ -1,0 +1,6 @@
+{
+  "command": "python pipeline.py validate (launched from parent directory)",
+  "exit_code": 2,
+  "stdout": "STAGE validate\n",
+  "stderr": "BLOCKED validate: required input missing. Original Zomato CSV missing. Supply SmartDine/data/raw/zomato.csv; no substitute is generated.\n"
+}
