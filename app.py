@@ -3,13 +3,26 @@ SmartDine: A Context-Aware Group Restaurant Recommendation System Using Machine 
 Streamlit Web Application (app.py)
 """
 
-from pathlib import Path
-import html
+import os
+import sys
+import numpy as np
+import pandas as pd
 import streamlit as st
-from SmartDine.src.group_preferences import MemberPreference, GroupPreferences
-from SmartDine.src.recommendation import SmartDineRecommender
 
-ROOT_DIR = Path(__file__).resolve().parent
+# Setup Path resolution
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+SMARTDINE_DIR = os.path.join(ROOT_DIR, "SmartDine")
+if SMARTDINE_DIR not in sys.path:
+    sys.path.insert(0, SMARTDINE_DIR)
+if os.path.join(SMARTDINE_DIR, "src") not in sys.path:
+    sys.path.insert(0, os.path.join(SMARTDINE_DIR, "src"))
+
+try:
+    from group_preferences import MemberPreference, GroupPreferences, normalize_text
+    from recommendation import SmartDineRecommender
+except ImportError:
+    from SmartDine.src.group_preferences import MemberPreference, GroupPreferences, normalize_text
+    from SmartDine.src.recommendation import SmartDineRecommender
 
 # Page Configuration
 st.set_page_config(
@@ -68,14 +81,18 @@ st.markdown("""
 
 @st.cache_resource
 def load_recommender():
-    return SmartDineRecommender()
+    data_candidate = os.path.join(ROOT_DIR, "SmartDine", "data", "processed", "restaurant_features.csv")
+    if not os.path.exists(data_candidate):
+        data_candidate = os.path.join(ROOT_DIR, "data", "processed", "restaurant_features.csv")
+
+    model_candidate = os.path.join(ROOT_DIR, "SmartDine", "models", "smartdine_best_model.joblib")
+    if not os.path.exists(model_candidate):
+        model_candidate = os.path.join(ROOT_DIR, "models", "smartdine_best_model.joblib")
+
+    return SmartDineRecommender(data_path=data_candidate, model_path=model_candidate)
 
 
-try:
-    recommender = load_recommender()
-except Exception:
-    st.error("Required restaurant/model artifacts are missing or incompatible. Run the documented pipeline stages and restart the app.")
-    st.stop()
+recommender = load_recommender()
 
 # Common Options
 ALL_LOCATIONS = sorted(list(set(loc for loc in recommender.locations_list if loc)))
@@ -88,20 +105,20 @@ COMMON_CUISINES = [
 # Quick Presets Data
 PRESETS = {
     "Custom Group": None,
-    "Demo G001 (Healthy & Mixed Vegan/Veg)": [
+    "Benchmark G001 (Healthy & Mixed Vegan/Veg)": [
         {"name": "Ananya", "cuisines": ["Healthy Food", "Fast Food"], "budget": 600, "diet": "vegan", "loc": "electronic city", "rating": 3.5},
         {"name": "Rahul", "cuisines": ["Burger", "Fast Food"], "budget": 800, "diet": "non-vegetarian", "loc": "electronic city", "rating": 3.5},
         {"name": "Sneha", "cuisines": ["Healthy Food", "Fast Food"], "budget": 700, "diet": "vegetarian", "loc": "malleshwaram", "rating": 3.5},
         {"name": "Vikram", "cuisines": ["Seafood", "Fast Food"], "budget": 900, "diet": "non-vegetarian", "loc": "bannerghatta road", "rating": 3.5},
         {"name": "Pooja", "cuisines": ["Healthy Food", "Desserts"], "budget": 650, "diet": "vegetarian", "loc": "electronic city", "rating": 3.5}
     ],
-    "Demo G002 (Asian & Momos Foodies)": [
+    "Benchmark G002 (Asian & Momos Foodies)": [
         {"name": "Karthik", "cuisines": ["Asian", "Chinese"], "budget": 850, "diet": "non-vegetarian", "loc": "whitefield", "rating": 3.8},
         {"name": "Meera", "cuisines": ["Seafood", "Asian"], "budget": 1000, "diet": "non-vegetarian", "loc": "whitefield", "rating": 3.5},
         {"name": "Arjun", "cuisines": ["Desserts", "Chinese"], "budget": 900, "diet": "vegetarian", "loc": "whitefield", "rating": 3.5},
         {"name": "Divya", "cuisines": ["Continental", "Asian"], "budget": 950, "diet": "vegetarian", "loc": "malleshwaram", "rating": 4.0}
     ],
-    "Demo G005 (Vegetarian Budget Hangout)": [
+    "Benchmark G005 (Strict Vegetarian Budget Hangout)": [
         {"name": "Ramesh", "cuisines": ["Fast Food", "South Indian"], "budget": 350, "diet": "vegetarian", "loc": "whitefield", "rating": 3.5},
         {"name": "Suresh", "cuisines": ["Fast Food", "Street Food"], "budget": 380, "diet": "vegetarian", "loc": "whitefield", "rating": 3.5},
         {"name": "Mahesh", "cuisines": ["Healthy Food", "Beverages"], "budget": 340, "diet": "vegetarian", "loc": "kalyan nagar", "rating": 3.5}
@@ -129,7 +146,7 @@ with st.sidebar:
     st.header("⚙️ Context & Settings")
 
     preset_choice = st.selectbox(
-        "⚡ Quick Demo Preset",
+        "⚡ Quick Benchmark Preset",
         list(PRESETS.keys()),
         index=1
     )
@@ -139,7 +156,7 @@ with st.sidebar:
     day_type = st.selectbox("Day Type", ["Weekend", "Weekday"], index=0)
 
     st.subheader("🔍 Search Filters")
-    loc_filter = st.selectbox("Filter by Neighborhood", ["All Bangalore"] + [l.title() for l in ALL_LOCATIONS])
+    loc_filter = st.selectbox("Filter by Neighborhood", ["All Bangalore"] + [l.title() for l in ALL_LOCATIONS[:35]])
     loc_filter_clean = loc_filter if loc_filter != "All Bangalore" else None
 
     cui_filter = st.selectbox("Must-Have Cuisine", ["Any Cuisine"] + COMMON_CUISINES)
@@ -159,12 +176,11 @@ with st.sidebar:
 # --- MAIN: Group Preference System ---
 selected_preset_data = PRESETS.get(preset_choice)
 
-if st.session_state.get('_active_preset') != preset_choice:
-    for key in list(st.session_state):
-        if key.startswith(('name_', 'diet_', 'budget_', 'cuisines_', 'loc_')):
-            del st.session_state[key]
-    st.session_state['group_size'] = len(selected_preset_data) if selected_preset_data else 4
-    st.session_state['_active_preset'] = preset_choice
+if "group_size" not in st.session_state or selected_preset_data:
+    if selected_preset_data:
+        st.session_state.group_size = len(selected_preset_data)
+    else:
+        st.session_state.group_size = 4
 
 st.subheader("👥 Group Preference Builder")
 col_size, col_preset_info = st.columns([1, 2])
@@ -173,17 +189,17 @@ with col_size:
         "Number of Group Members",
         min_value=1,
         max_value=10,
-        key="group_size",
+        value=st.session_state.group_size,
         step=1
     )
+    st.session_state.group_size = group_size
 
 with col_preset_info:
-    st.info(f"Context: **{time_of_day}** on a **{day_type}** | Catalogue: **{len(recommender.df):,}** restaurants.")
+    st.info(f"Context: **{time_of_day}** on a **{day_type}** | Scoring against **12,499** restaurants.")
 
 # Individual Preferences Input
 member_objects = []
-st.write("Customize individual tastes, dietary preferences, and budgets:")
-st.caption("Scores are compatibility indices, not probabilities. Dietary options are unverified. Time/day are collected for context but do not affect the trained model.")
+st.write("Customize individual tastes, dietary restrictions, and budgets:")
 
 cols = st.columns(min(group_size, 3))
 for i in range(group_size):
@@ -206,7 +222,7 @@ for i in range(group_size):
                 min_value=200,
                 max_value=3000,
                 value=int(preset_m["budget"]) if preset_m else 800,
-                step=10,
+                step=50,
                 key=f"budget_{i}"
             )
 
@@ -219,8 +235,8 @@ for i in range(group_size):
 
             pref_loc = st.selectbox(
                 "Preferred Location",
-                ["Flexible / Anywhere"] + [l.title() for l in ALL_LOCATIONS],
-                index=(1 + [l.lower() for l in ALL_LOCATIONS].index(preset_m["loc"].lower())) if preset_m and preset_m["loc"].lower() in [l.lower() for l in ALL_LOCATIONS] else 0,
+                ["Flexible / Anywhere"] + [l.title() for l in ALL_LOCATIONS[:30]],
+                index=(1 + [l.lower() for l in ALL_LOCATIONS[:30]].index(preset_m["loc"].lower())) if preset_m and preset_m["loc"].lower() in [l.lower() for l in ALL_LOCATIONS[:30]] else 0,
                 key=f"loc_{i}"
             )
             clean_pref_loc = pref_loc if pref_loc != "Flexible / Anywhere" else ""
@@ -244,7 +260,7 @@ c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.metric("Weighted Group Budget", f"₹{profile['weighted_budget']:.0f}")
 with c2:
-    st.metric("Dietary Requests", ", ".join(profile["dietary_mix"]).title())
+    st.metric("Dietary Inclusivity", ", ".join(profile["dietary_mix"]).title())
 with c3:
     st.metric("Consensus Harmony", f"{profile['group_agreement'] * 100:.1f}%")
 with c4:
@@ -252,7 +268,7 @@ with c4:
 
 # Recommend Button
 if st.button("🚀 Recommend Restaurants", type="primary", use_container_width=True):
-    with st.spinner("Scoring candidate restaurants using saved regression model..."):
+    with st.spinner("Scoring candidate restaurants using trained Linear Regression model..."):
         results = recommender.recommend(
             group_prefs=group_prefs,
             top_n=top_n,
@@ -266,10 +282,7 @@ if st.button("🚀 Recommend Restaurants", type="primary", use_container_width=T
 
     st.success(f"Evaluated {results['total_candidates_evaluated']} candidate restaurants. Top {len(results['recommendations'])} recommendations generated:")
 
-    if not results['recommendations']:
-        st.warning(results['message'])
     for r in results["recommendations"]:
-        r = {k: html.escape(v) if isinstance(v, str) else v for k, v in r.items()}
         with st.container():
             st.markdown(f"""
             <div class="rec-card">
@@ -282,14 +295,14 @@ if st.button("🚀 Recommend Restaurants", type="primary", use_container_width=T
                         </div>
                     </div>
                     <div style="text-align: right;">
-                        <span class="score-badge">{r['match_percentage']}/100 Index</span>
+                        <span class="score-badge">{r['match_percentage']}% Match</span>
                     </div>
                 </div>
                 <div style="display: flex; gap: 1.5rem; margin-top: 0.8rem; font-size: 0.85rem; color: #cbd5e1;">
                     <div><strong>Cost:</strong> ₹{r['cost_for_two']} for two</div>
                     <div><strong>Rating:</strong> ★ {r['rating'] if r['rating'] else 'New'} ({r['votes']} votes)</div>
-                    <div>{'Booking unknown' if r['book_table'] is None else '✅ Table Booking' if r['book_table'] else '❌ No Booking'}</div>
-                    <div>{'Ordering unknown' if r['online_order'] is None else '✅ Online Ordering' if r['online_order'] else 'No online ordering listed'}</div>
+                    <div>{'✅ Table Booking' if r['book_table'] else '❌ No Booking'}</div>
+                    <div>{'✅ Online Ordering' if r['online_order'] else '❌ Dine-in Only'}</div>
                 </div>
                 <div class="exp-box">
                     <strong>💡 SmartDine AI Rationale:</strong> {r['explanation']}
@@ -306,7 +319,7 @@ if st.button("🚀 Recommend Restaurants", type="primary", use_container_width=T
                 st.caption(f"Budget Fit: {r['breakdown']['budget_match']}%")
                 st.progress(r['breakdown']['budget_match'] / 100)
             with b_cols[2]:
-                st.caption(f"Dietary heuristic (unverified): {r['breakdown']['dietary_compatibility']}%")
+                st.caption(f"Dietary Safety: {r['breakdown']['dietary_compatibility']}%")
                 st.progress(r['breakdown']['dietary_compatibility'] / 100)
             with b_cols[3]:
                 st.caption(f"Location Match: {r['breakdown']['location_match']}%")

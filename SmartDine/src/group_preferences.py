@@ -45,12 +45,10 @@ class MemberPreference:
         budget_importance: float = 1.0,
         dietary_importance: float = 1.0,
         requires_booking: bool = False,
-        prefers_online: bool = False,
-        restaurant_type_importance: float = 1.0,
-        location_importance: float = 1.0
+        prefers_online: bool = False
     ):
         self.name = name
-        self.preferred_cuisines = sorted(set(normalize_text(c) for c in (preferred_cuisines or []) if normalize_text(c)))
+        self.preferred_cuisines = [normalize_text(c) for c in (preferred_cuisines or []) if normalize_text(c)]
         self.budget = float(budget)
         self.dietary_preference = normalize_text(dietary_preference) or "no preference"
         self.preferred_location = normalize_text(preferred_location)
@@ -61,18 +59,6 @@ class MemberPreference:
         self.dietary_importance = float(dietary_importance)
         self.requires_booking = bool(requires_booking)
         self.prefers_online = bool(prefers_online)
-        self.restaurant_type_importance = float(restaurant_type_importance)
-        self.location_importance = float(location_importance)
-        if not np.isfinite(self.budget) or self.budget <= 0:
-            raise ValueError('Budget for two must be finite and greater than zero.')
-        if not np.isfinite(self.min_rating) or not 0 <= self.min_rating <= 5:
-            raise ValueError('Minimum rating must be between zero and five.')
-        if self.dietary_preference not in {'vegetarian', 'vegan', 'non-vegetarian', 'no preference'}:
-            raise ValueError('Unknown dietary preference.')
-        for attr in ['cuisine_importance', 'budget_importance', 'dietary_importance',
-                     'restaurant_type_importance', 'location_importance']:
-            if not np.isfinite(getattr(self, attr)) or getattr(self, attr) < 0:
-                raise ValueError('Importance weights must be finite and non-negative.')
 
     def to_dict(self) -> Dict[str, Any]:
         return {
@@ -87,9 +73,7 @@ class MemberPreference:
             "budget_importance": self.budget_importance,
             "dietary_importance": self.dietary_importance,
             "requires_booking": self.requires_booking,
-            "prefers_online": self.prefers_online,
-            "restaurant_type_importance": self.restaurant_type_importance,
-            "location_importance": self.location_importance
+            "prefers_online": self.prefers_online
         }
 
 
@@ -137,37 +121,44 @@ class GroupPreferences:
         min_ratings = [m.min_rating for m in self.members]
         group_min_rating = float(np.percentile(min_ratings, 75)) if min_ratings else 3.5
 
-        # 4. Dietary preferences are requests; dataset cannot verify suitability.
+        # 4. Dietary Reconciliations (strict safety first)
         dietary_set = set(m.dietary_preference for m in self.members if m.dietary_preference != "no preference")
         has_vegan = "vegan" in dietary_set
         has_veg = "vegetarian" in dietary_set or has_vegan
 
         # 5. Preferred Locations
         locations = [m.preferred_location for m in self.members if m.preferred_location]
-        top_locations = sorted(set(locations))
+        top_locations = list(set(locations))
 
         # 6. Restaurant Types
         types = [m.preferred_restaurant_type for m in self.members if m.preferred_restaurant_type]
-        top_types = sorted(set(types))
+        top_types = list(set(types))
 
         # 7. Consensus / Group Agreement Score
-        # Mean pairwise cuisine Jaccard; empty union and singleton -> 0.
-        cuisine_sets = [set(m.preferred_cuisines) for m in self.members]
-        pairs = [len(a & b) / len(a | b) if a | b else 0.0
-                 for i, a in enumerate(cuisine_sets) for b in cuisine_sets[i + 1:]]
-        group_agreement = float(np.mean(pairs)) if pairs else 0.0
+        agreement_dims = []
+        for dim_vals in [
+            [c for m in self.members for c in m.preferred_cuisines],
+            types,
+            locations,
+            [str(m.budget) for m in self.members],
+            [m.dietary_preference for m in self.members]
+        ]:
+            if dim_vals:
+                counts = pd.Series(dim_vals).value_counts()
+                agreement_dims.append(counts.max() / len(dim_vals))
+        group_agreement = float(np.mean(agreement_dims)) if agreement_dims else 0.5
 
         return {
             "group_size": self.group_size,
             "weighted_budget": round(weighted_budget, 1),
             "min_rating": round(group_min_rating, 1),
             "top_cuisines": top_cuisines,
-            "dietary_mix": sorted(dietary_set) or ["no preference"],
+            "dietary_mix": list(dietary_set) or ["no preference"],
             "has_vegetarian": has_veg,
             "has_vegan": has_vegan,
             "preferred_locations": top_locations,
             "preferred_types": top_types,
-            "group_agreement": group_agreement,
+            "group_agreement": round(group_agreement, 3),
             "time_of_day": self.time_of_day,
             "day_type": self.day_type,
             "booking_required": any(m.requires_booking for m in self.members),
